@@ -1,0 +1,27 @@
+{
+  "name": "my_blog",
+  "version": "0.0.1",
+  "description": "my_blog",
+  "main": "index.js",
+  "authors": {
+    "name": "Constable",
+    "email": "constable@163.com"
+  },
+  "repository": "nope/my blog",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.0.0",
+    "@vuepress/plugin-back-to-top": "^1.0.0",
+    "@vuepress/plugin-medium-zoom": "^1.0.0"
+  },
+  "dependencies": {
+    "element-ui": "^2.12.0",
+    "vuepress-plugin-comment": "^0.7.0-beta.1",
+    "vuex": "^3.1.1",
+    "vuex-persistedstate": "^2.7.0"
+  }
+}
