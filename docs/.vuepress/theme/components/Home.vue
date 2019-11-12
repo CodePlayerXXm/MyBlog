@@ -1,10 +1,16 @@
 <template>
   <div>
     <header class="hero">
-      <h2 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h2>
-      <p
-        class="description"
-      >{{ data.page.frontmatter.tagline || $description || 'Welcome to your VuePress site' }}</p>
+      <h2 v-if="data.heroText !== null" id="main-title">
+        {{ data.heroText || $title || "Hello" }}
+      </h2>
+      <p class="description">
+        {{
+          data.page.frontmatter.tagline ||
+            $description ||
+            "Welcome to your VuePress site"
+        }}
+      </p>
     </header>
     <main class="home" aria-labelledby="main-title">
       <div class="features">
@@ -14,11 +20,11 @@
           <h3 class="name">Constable</h3>
           <div class="num">
             <div>
-              <h3>{{data.pages}}</h3>
+              <h3>{{ data.pages }}</h3>
               <h6>文章</h6>
             </div>
             <div>
-              <h3>{{data.tags}}</h3>
+              <h3>{{ data.tags }}</h3>
               <h6>标签</h6>
             </div>
           </div>
@@ -31,7 +37,7 @@
         </aside>
       </div>
     </main>
-    <div class="footer">{{data.page.frontmatter.footer}}</div>
+    <div class="footer">{{ data.page.frontmatter.footer }}</div>
   </div>
 </template>
 

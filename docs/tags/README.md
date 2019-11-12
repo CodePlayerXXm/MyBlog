@@ -1,7 +1,6 @@
 ---
-sidebar: none
-theme: true
-comment: false
+# sidebar: none
+# theme: true
+# comment: false
+layout: TagsList
 ---
-
-<TagsList />
