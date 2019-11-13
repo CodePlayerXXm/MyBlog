@@ -1,5 +1,5 @@
 ---
-sidebar: none
+sidebar: auto
 tag:
   - 生活
 features:

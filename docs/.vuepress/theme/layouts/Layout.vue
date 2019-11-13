@@ -107,12 +107,14 @@ export default {
       ];
     }
   },
-  created() {
+  beforeMount() {
     for (let keys in this.data) {
       window.sessionStorage.setItem(keys, this.data[keys]);
     }
   },
   mounted() {
+    console.log(this.$site);
+
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });

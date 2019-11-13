@@ -25,6 +25,7 @@ export default ({
   // ...apply enhancements for the site.
   Vue.use(Element);
   Vue.use(Vuex);
+
   const state = {
     selectedTag: null
   };
@@ -33,8 +34,6 @@ export default ({
 
   const mutations = {
     selectTag(state, lang) {
-      console.log(window);
-
       state.selectedTag = lang;
     }
   };
@@ -56,7 +55,5 @@ export default ({
     plugins: debug ? [createLogger()] : []
     // plugins: [createLogger(), createPersisted]
   });
-  Vue.mixin({
-    store
-  });
+  Vue.mixin({ store });
 };

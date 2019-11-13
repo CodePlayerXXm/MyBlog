@@ -14,24 +14,24 @@
     </header>
     <main class="home" aria-labelledby="main-title">
       <div class="features">
-        <BlogList :artList="data.site" :pages="data.pages"></BlogList>
+        <BlogList :artList="site"></BlogList>
         <aside class="subbar">
           <img src="../images/head.gif" alt="hero" class="personal-img" />
           <h3 class="name">Constable</h3>
           <div class="num">
             <div>
-              <h3>{{ data.pages }}</h3>
+              <h3>{{ pages }}</h3>
               <h6>文章</h6>
             </div>
             <div>
-              <h3>{{ data.tags }}</h3>
+              <h3>{{ tags }}</h3>
               <h6>标签</h6>
             </div>
           </div>
           <div>
             <div>标签墙</div>
             <div style="padding-top:0.75rem">
-              <Tags :tagsList="data.tag" @jump="goTagList"></Tags>
+              <Tags :tagsList="tag" @jump="goTagList"></Tags>
             </div>
           </div>
         </aside>
@@ -48,19 +48,23 @@ export default {
   components: { NavLink },
   data() {
     return {
-      currentPage: 1
+      currentPage: 1,
+      site: [],
+      tag: [],
+      tags: "",
+      pages: 0
     };
+  },
+  beforeMount() {
+    this.site = JSON.parse(window.sessionStorage.getItem("site"));
+    this.tag = JSON.parse(window.sessionStorage.getItem("tag"));
+    this.pages = this.site.length;
+    this.tags = this.tag.length;
   },
   computed: {
     data() {
-      let site = JSON.parse(window.sessionStorage.getItem("site"));
-      let tag = JSON.parse(window.sessionStorage.getItem("tag"));
       return {
-        site,
-        tag,
-        tags: tag.length,
-        page: this.$page,
-        pages: site.length
+        page: this.$page
       };
     }
   },

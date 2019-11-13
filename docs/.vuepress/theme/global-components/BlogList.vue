@@ -5,8 +5,9 @@
         <section class="sectionWrap">
           <h2>{{ item.frontmatter.features[0].title }}</h2>
           <p>{{ item.frontmatter.features[0].details }}</p>
-          <div>
+          <div class="lastLine">
             <Tags :tagsList="item.frontmatter.tag"></Tags>
+            <span class="time">{{item.lastUpdated}}</span>
           </div>
         </section>
       </router-link>
@@ -28,10 +29,6 @@ export default {
     artList: {
       required: true,
       type: Array
-    },
-    pages: {
-      required: true,
-      type: Number
     }
   },
   data() {
@@ -50,6 +47,9 @@ export default {
         }
       });
       return curArticles;
+    },
+    pages() {
+      return this.artList.length;
     }
   },
   methods: {
@@ -78,6 +78,10 @@ export default {
     &:hover
       box-shadow 0 2px 16px 0 rgba(0, 0, 0, .2)
       transform scale(1.005)
+
+    .lastLine
+      display flex
+      justify-content space-between
 
   .sectionWrap >>> .tagWrap:hover
     box-shadow none
