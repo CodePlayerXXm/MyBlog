@@ -58,8 +58,8 @@ export default {
         }
       });
       return {
-        site: JSON.stringify(site),
-        tag: JSON.stringify(tagTotal)
+        site,
+        tag: tagTotal
       };
     },
     shouldShowNavbar() {
@@ -107,14 +107,16 @@ export default {
       ];
     }
   },
-  beforeMount() {
-    for (let keys in this.data) {
-      window.sessionStorage.setItem(keys, this.data[keys]);
-    }
+  created() {
+    this.$store.commit("querySite", this.data.site);
+    this.$store.commit("queryTag", this.data.tag);
   },
+  // beforeMount() {
+  //   for (let keys in this.data) {
+  //     window.sessionStorage.setItem(keys, this.data[keys]);
+  //   }
+  // },
   mounted() {
-    console.log(this.$site);
-
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });

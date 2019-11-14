@@ -19,16 +19,16 @@ export default {
   },
   data() {
     return {
-      tags: [],
-      articles: []
+      tags: this.tag,
+      articles: [...this.site]
     };
   },
-  beforeMount() {
-    this.tags = JSON.parse(window.sessionStorage.getItem("tag"));
-    this.articles = JSON.parse(window.sessionStorage.getItem("site"));
-  },
+  // beforeMount() {
+  //   this.tags = JSON.parse(window.sessionStorage.getItem("tag"));
+  //   this.articles = JSON.parse(window.sessionStorage.getItem("site"));
+  // },
   computed: {
-    ...mapState(["selectedTag"]),
+    ...mapState(["tag", "site"]),
     artList() {
       return this.articles.filter(item => {
         return item.frontmatter.tag.includes(this.selectedTag);
