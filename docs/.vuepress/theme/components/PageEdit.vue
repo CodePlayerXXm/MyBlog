@@ -12,37 +12,37 @@
   </footer>
 </template>
 <script>
-import isNil from 'lodash/isNil'
-import { endingSlashRE, outboundRE } from '../util'
+import isNil from "lodash/isNil";
+import { endingSlashRE, outboundRE } from "../util";
 
 export default {
-  name: 'PageEdit',
+  name: "PageEdit",
   computed: {
-    lastUpdated () {
-      return this.$page.lastUpdated
+    lastUpdated() {
+      return this.$page.lastUpdated;
     },
 
-    lastUpdatedText () {
-      if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {
-        return this.$themeLocaleConfig.lastUpdated
+    lastUpdatedText() {
+      if (typeof this.$themeLocaleConfig.lastUpdated === "string") {
+        return this.$themeLocaleConfig.lastUpdated;
       }
-      if (typeof this.$site.themeConfig.lastUpdated === 'string') {
-        return this.$site.themeConfig.lastUpdated
+      if (typeof this.$site.themeConfig.lastUpdated === "string") {
+        return this.$site.themeConfig.lastUpdated;
       }
-      return 'Last Updated'
+      return "Last Updated";
     },
 
-    editLink () {
+    editLink() {
       const showEditLink = isNil(this.$page.frontmatter.editLink)
         ? this.$site.themeConfig.editLinks
-        : this.$page.frontmatter.editLink
+        : this.$page.frontmatter.editLink;
 
       const {
         repo,
-        docsDir = '',
-        docsBranch = 'master',
+        docsDir = "",
+        docsBranch = "master",
         docsRepo = repo
-      } = this.$site.themeConfig
+      } = this.$site.themeConfig;
 
       if (showEditLink && docsRepo && this.$page.relativePath) {
         return this.createEditLink(
@@ -51,69 +51,74 @@ export default {
           docsDir,
           docsBranch,
           this.$page.relativePath
-        )
+        );
       }
-      return null
+      return null;
     },
 
-    editLinkText () {
+    editLinkText() {
       return (
-        this.$themeLocaleConfig.editLinkText
-        || this.$site.themeConfig.editLinkText
-        || `Edit this page`
-      )
+        this.$themeLocaleConfig.editLinkText ||
+        this.$site.themeConfig.editLinkText ||
+        `Edit this page`
+      );
     }
   },
 
   methods: {
-    createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
-      const bitbucket = /bitbucket.org/
+    createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
+      const bitbucket = /bitbucket.org/;
       if (bitbucket.test(repo)) {
-        const base = outboundRE.test(docsRepo) ? docsRepo : repo
+        const base = outboundRE.test(docsRepo) ? docsRepo : repo;
         return (
-          base.replace(endingSlashRE, '')
-          + `/src`
-          + `/${docsBranch}/`
-          + (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '')
-          + path
-          + `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
-        )
+          base.replace(endingSlashRE, "") +
+          `/src` +
+          `/${docsBranch}/` +
+          (docsDir ? docsDir.replace(endingSlashRE, "") + "/" : "") +
+          path +
+          `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
+        );
       }
 
       const base = outboundRE.test(docsRepo)
         ? docsRepo
-        : `https://github.com/${docsRepo}`
+        : `https://github.com/${docsRepo}`;
       return (
-        base.replace(endingSlashRE, '')
-        + `/edit`
-        + `/${docsBranch}/`
-        + (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '')
-        + path
-      )
+        base.replace(endingSlashRE, "") +
+        `/edit` +
+        `/${docsBranch}/` +
+        (docsDir ? docsDir.replace(endingSlashRE, "") + "/" : "") +
+        path
+      );
     }
   }
-}
+};
 </script>
 <style lang="stylus">
-@require '../styles/wrapper.styl'
+@import '../styles/wrapper.styl'
 
 .page-edit
-  @extend $wrapper
+  @extends $wrapper
+  background none
   padding-top 1rem
   padding-bottom 1rem
   overflow auto
 
   .edit-link
     display inline-block
+
     a
       color lighten($textColor, 25%)
-      margin-right 0.25rem
+      margin-right .25rem
+
   .last-updated
     float right
-    font-size 0.9em
+    font-size .9em
+
     .prefix
       font-weight 500
       color lighten($textColor, 25%)
+
     .time
       font-weight 400
       color #aaa
@@ -121,10 +126,10 @@ export default {
 @media (max-width: $MQMobile)
   .page-edit
     .edit-link
-      margin-bottom 0.5rem
+      margin-bottom .5rem
+
     .last-updated
-      font-size 0.8em
+      font-size .8em
       float none
       text-align left
-
 </style>

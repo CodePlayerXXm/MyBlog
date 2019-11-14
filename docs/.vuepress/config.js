@@ -36,13 +36,15 @@ module.exports = {
     editLinkText: "",
     lastUpdated: "Last Updated",
     nav: [
-      // {
-      //   text: "分类",
-      //   link: "/sort/"
-      // },
+      {
+        text: "主页",
+        link: "/",
+        class: "icon-zhuye"
+      },
       {
         text: "标签",
-        link: "/tags/"
+        link: "/tags/",
+        class: "icon-biaoqian"
       }
     ],
     sidebar: {

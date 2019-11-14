@@ -37,7 +37,13 @@ export default {
       list: this.artList
     };
   },
+  watch: {
+    artList(val) {
+      this.list = val;
+    }
+  },
   computed: {
+    // 时间排序
     timeList() {
       this.list.sort((a, b) => {
         return (
@@ -46,6 +52,7 @@ export default {
       });
       return this.list;
     },
+    // 分页
     curArticles() {
       let curArticles = this.timeList.filter((item, index) => {
         if (

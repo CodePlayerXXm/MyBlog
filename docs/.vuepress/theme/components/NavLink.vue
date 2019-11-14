@@ -6,7 +6,10 @@
     @click.native="isTag(item.text)"
     v-if="!isExternal(link)"
     :exact="exact"
-  >{{ item.text }}</router-link>
+  >
+    <span class="iconfont" :class="item.class"></span>
+    {{ item.text }}
+  </router-link>
   <a
     v-else
     :href="link"
@@ -58,3 +61,21 @@ export default {
   }
 };
 </script>
+<style lang="stylus" scoped>
+@font-face
+  font-family 'iconfont'
+  src url('../fonts/iconfont.eot')
+  src url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('../fonts/iconfont.woff2') format('woff2'), url('../fonts/iconfont.woff') format('woff'), url('../fonts/iconfont.ttf') format('truetype'), url('../fonts/iconfont.svg#iconfont') format('svg')
+
+.iconfont
+  font-family 'iconfont' !important
+  font-style normal
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+.icon-zhuye:before
+  content '\e6ce'
+
+.icon-biaoqian:before
+  content '\e678'
+</style>

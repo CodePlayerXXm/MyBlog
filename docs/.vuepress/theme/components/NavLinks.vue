@@ -96,7 +96,6 @@ export default {
   }
 };
 </script>
-
 <style lang="stylus">
 .nav-links
   display inline-block
