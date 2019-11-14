@@ -11,26 +11,24 @@
 </template>
 <script>
 import { mapState } from "vuex";
+import { getSite,getTags } from "../theme/util";
 import mainWrap from "@theme/components/mainWrap.vue";
 
 export default {
   components: {
     mainWrap
   },
-  data() {
-    return {
-      tags: this.tag,
-      articles: [...this.site]
-    };
-  },
-  // beforeMount() {
-  //   this.tags = JSON.parse(window.sessionStorage.getItem("tag"));
-  //   this.articles = JSON.parse(window.sessionStorage.getItem("site"));
-  // },
   computed: {
-    ...mapState(["tag", "site"]),
+    ...mapState(["selectedTag"]),
+    site(){
+      return getSite(this.$site)
+    },
+    tags(){
+      let site = getSite(this.$site)
+      return getTags(site)
+    },
     artList() {
-      return this.articles.filter(item => {
+      return this.site.filter(item => {
         return item.frontmatter.tag.includes(this.selectedTag);
       });
     }
