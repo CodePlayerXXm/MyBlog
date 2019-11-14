@@ -1,14 +1,12 @@
 <template>
   <div>
     <header class="hero">
-      <h2 v-if="data.heroText !== null" id="main-title">
-        {{ data.heroText || $title || "Hello" }}
-      </h2>
+      <h2 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h2>
       <p class="description">
         {{
-          data.page.frontmatter.tagline ||
-            $description ||
-            "Welcome to your VuePress site"
+        data.page.frontmatter.tagline ||
+        $description ||
+        "Welcome to your VuePress site"
         }}
       </p>
     </header>
@@ -43,25 +41,34 @@
 
 <script>
 import NavLink from "@theme/components/NavLink.vue";
+import { mapState } from "vuex";
 
 export default {
   components: { NavLink },
   data() {
     return {
       currentPage: 1,
-      site: [],
-      tag: [],
       tags: "",
       pages: 0
     };
   },
-  beforeMount() {
-    this.site = JSON.parse(window.sessionStorage.getItem("site"));
-    this.tag = JSON.parse(window.sessionStorage.getItem("tag"));
+  created() {
+    console.log(this.site);
+
     this.pages = this.site.length;
     this.tags = this.tag.length;
   },
+  // beforeMount() {
+  //   this.site = JSON.parse(window.sessionStorage.getItem("site"));
+  //   this.tag = JSON.parse(window.sessionStorage.getItem("tag"));
+  //   this.pages = this.site.length;
+  //   this.tags = this.tag.length;
+  //   console.log(this.site);
+  //   console.log(this.tag);
+  // },
   computed: {
+    ...mapState(["site", "tag"]),
+
     data() {
       return {
         page: this.$page

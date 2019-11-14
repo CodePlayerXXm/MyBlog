@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   props: {
     artList: {
@@ -43,6 +45,8 @@ export default {
     }
   },
   computed: {
+    ...mapState(["selectedTag"]),
+
     // 时间排序
     timeList() {
       this.list.sort((a, b) => {

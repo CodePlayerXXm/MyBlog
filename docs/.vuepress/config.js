@@ -57,7 +57,6 @@ module.exports = {
       ]
     }
   },
-  configureWebpack: { output: { globalObject: "this" } },
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */ plugins: [

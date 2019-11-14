@@ -27,7 +27,9 @@ export default ({
   Vue.use(Vuex);
 
   const state = {
-    selectedTag: null
+    selectedTag: null,
+    site: null,
+    tag: null
   };
 
   // const modules = {};
@@ -35,6 +37,12 @@ export default ({
   const mutations = {
     selectTag(state, lang) {
       state.selectedTag = lang;
+    },
+    querySite(state, lang) {
+      state.site = lang;
+    },
+    queryTag(state, lang) {
+      state.tag = lang;
     }
   };
 

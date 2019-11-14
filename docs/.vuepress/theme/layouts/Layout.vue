@@ -58,8 +58,8 @@ export default {
         }
       });
       return {
-        site: JSON.stringify(site),
-        tag: JSON.stringify(tagTotal)
+        site,
+        tag: tagTotal
       };
     },
     shouldShowNavbar() {
