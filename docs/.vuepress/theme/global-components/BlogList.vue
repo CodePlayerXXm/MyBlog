@@ -33,12 +33,21 @@ export default {
   },
   data() {
     return {
-      currentPage: 1
+      currentPage: 1,
+      list: this.artList
     };
   },
   computed: {
+    timeList() {
+      this.list.sort((a, b) => {
+        return (
+          new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime()
+        );
+      });
+      return this.list;
+    },
     curArticles() {
-      let curArticles = this.artList.filter((item, index) => {
+      let curArticles = this.timeList.filter((item, index) => {
         if (
           index < this.currentPage * 5 &&
           index >= (this.currentPage - 1) * 5

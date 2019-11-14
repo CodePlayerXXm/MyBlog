@@ -12,7 +12,7 @@ features:
 
 ## foo
 
-- Type: `string`
+- Type: `string` 666
 - Default: `/`
 
 ## bar
