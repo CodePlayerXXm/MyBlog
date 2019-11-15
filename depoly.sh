@@ -9,7 +9,7 @@ yarn build
 # 进入生成的构建文件夹
 cd docs/.vuepress/dist
 
-如果你是要部署到自定义域名
+# 如果你是要部署到自定义域名
 echo 'constable.chat' > CNAME
 
 git init
