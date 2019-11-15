@@ -40,28 +40,6 @@ export default {
   },
 
   computed: {
-    data() {
-      let site = this.$site.pages.filter(item => {
-        return item.frontmatter.tag !== void 0;
-      });
-      let tagTotal = [];
-      site.forEach(item => {
-        item.frontmatter.tag.forEach(tagItem => {
-          if (!tagTotal.includes(tagItem)) {
-            tagTotal.push(tagItem);
-          }
-        });
-      });
-      tagTotal.sort((a, b) => {
-        if (a.length < b.length) {
-          return -1;
-        }
-      });
-      return {
-        site,
-        tag: tagTotal
-      };
-    },
     shouldShowNavbar() {
       const { themeConfig } = this.$site;
       const { frontmatter } = this.$page;
@@ -107,15 +85,6 @@ export default {
       ];
     }
   },
-  created() {
-    this.$store.commit("querySite", this.data.site);
-    this.$store.commit("queryTag", this.data.tag);
-  },
-  // beforeMount() {
-  //   for (let keys in this.data) {
-  //     window.sessionStorage.setItem(keys, this.data[keys]);
-  //   }
-  // },
   mounted() {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;

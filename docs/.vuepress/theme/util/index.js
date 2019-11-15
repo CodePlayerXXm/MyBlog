@@ -249,3 +249,28 @@ function resolveItem(item, pages, base, groupDepth = 1) {
 export function getRandomColor() {
   return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
 }
+
+export function getSite(site) {
+  return site.pages.filter(item => {
+    return item.frontmatter.tag !== void 0;
+  });
+}
+
+export function getTags(site) {
+  let tagTotal = [];
+  site.forEach(item => {
+    item.frontmatter.tag.forEach(tagItem => {
+      if (!tagTotal.includes(tagItem)) {
+        tagTotal.push(tagItem);
+      }
+    });
+  });
+  tagTotal.sort((a, b) => {
+    if (a.length < b.length) {
+      return -1;
+    }
+  });
+  return tagTotal 
+}
+
+

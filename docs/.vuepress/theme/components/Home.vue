@@ -41,34 +41,30 @@
 
 <script>
 import NavLink from "@theme/components/NavLink.vue";
-import { mapState } from "vuex";
+import { getSite,getTags } from "../util";
+
 
 export default {
   components: { NavLink },
   data() {
     return {
       currentPage: 1,
-      tags: "",
-      pages: 0
     };
   },
-  created() {
-    console.log(this.site);
-
-    this.pages = this.site.length;
-    this.tags = this.tag.length;
-  },
-  // beforeMount() {
-  //   this.site = JSON.parse(window.sessionStorage.getItem("site"));
-  //   this.tag = JSON.parse(window.sessionStorage.getItem("tag"));
-  //   this.pages = this.site.length;
-  //   this.tags = this.tag.length;
-  //   console.log(this.site);
-  //   console.log(this.tag);
-  // },
   computed: {
-    ...mapState(["site", "tag"]),
-
+    site(){
+      return getSite(this.$site)
+    },
+    tag(){
+      let site = getSite(this.$site)
+      return getTags(site)
+    },
+    pages(){
+      return this.site.length
+    }, 
+    tags(){
+      return this.tag.length
+    }, 
     data() {
       return {
         page: this.$page
