@@ -1,12 +1,14 @@
 <template>
   <div>
     <header class="hero">
-      <h2 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h2>
+      <h2 v-if="data.heroText !== null" id="main-title">
+        {{ data.heroText || $title || "Hello" }}
+      </h2>
       <p class="description">
         {{
-        data.page.frontmatter.tagline ||
-        $description ||
-        "Welcome to your VuePress site"
+          data.page.frontmatter.tagline ||
+            $description ||
+            "Welcome to your VuePress site"
         }}
       </p>
     </header>
@@ -41,30 +43,29 @@
 
 <script>
 import NavLink from "@theme/components/NavLink.vue";
-import { getSite,getTags } from "../util";
-
+import { getSite, getTags } from "../util";
 
 export default {
   components: { NavLink },
   data() {
     return {
-      currentPage: 1,
+      currentPage: 1
     };
   },
   computed: {
-    site(){
-      return getSite(this.$site)
+    site() {
+      return getSite(this.$site);
     },
-    tag(){
-      let site = getSite(this.$site)
-      return getTags(site)
+    tag() {
+      let site = getSite(this.$site);
+      return getTags(site);
     },
-    pages(){
-      return this.site.length
-    }, 
-    tags(){
-      return this.tag.length
-    }, 
+    pages() {
+      return this.site.length;
+    },
+    tags() {
+      return this.tag.length;
+    },
     data() {
       return {
         page: this.$page
@@ -174,7 +175,14 @@ export default {
 @media (max-width: $MQMobile)
   .home
     .features
-      flex-direction column
+      flex-direction column-reverse
+
+      .subbar
+        position static
+        margin 0
+        margin-top .75rem
+        margin-bottom .75rem
+        width 100%
 
     .feature
       max-width 100%

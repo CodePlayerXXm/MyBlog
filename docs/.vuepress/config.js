@@ -9,7 +9,7 @@ module.exports = {
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   description: description,
-  base:"/MyBlog/",
+  // base:"/MyBlog/",
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
@@ -61,19 +61,20 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */ plugins: [
     "@vuepress/plugin-back-to-top",
-    "@vuepress/plugin-medium-zoom",
-    [
-      "vuepress-plugin-comment",
-      {
-        choosen: "valine",
-        // options选项中的所有参数，会传给Valine的配置
-        options: {
-          el: "#valine-vuepress-comment",
-          appId: "BqwiclsjRVjcNj1kRMveAROC-gzGzoHsz",
-          appKey: "SfMax0EqoUx4wQE5LC98xLiH",
-          placeholder: "请输入你的评论。"
-        }
-      }
-    ]
+    "@vuepress/plugin-medium-zoom"
+    // [
+    //   "vuepress-plugin-comment",
+    //   {
+    //     choosen: "valine",
+    //     // options选项中的所有参数，会传给Valine的配置
+    //     options: {
+    //       el: "#valine-vuepress-comment",
+    //       appId: "BqwiclsjRVjcNj1kRMveAROC-gzGzoHsz",
+    //       appKey: "SfMax0EqoUx4wQE5LC98xLiH",
+    //       placeholder: "请输入你的评论。",
+    //       path: window.location.pathname
+    //     }
+    //   }
+    // ]
   ]
 };

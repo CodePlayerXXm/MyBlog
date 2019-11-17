@@ -7,7 +7,7 @@
           <p>{{ item.frontmatter.features[0].details }}</p>
           <div class="lastLine">
             <Tags :tagsList="item.frontmatter.tag"></Tags>
-            <span class="time">{{item.lastUpdated}}</span>
+            <span class="time">{{ item.lastUpdated }}</span>
           </div>
         </section>
       </router-link>
@@ -105,4 +105,8 @@ export default {
 
   .sectionWrap >>> .tagWrap:hover
     box-shadow none
+
+@media (max-width: $MQMobile)
+  .articles
+    width 100%
 </style>

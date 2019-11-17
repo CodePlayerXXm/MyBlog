@@ -1,10 +1,23 @@
 <template>
   <footer class="page-edit">
     <div class="edit-link" v-if="editLink">
-      <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
+      <a :href="editLink" target="_blank" rel="noopener noreferrer">{{
+        editLinkText
+      }}</a>
       <OutboundLink />
     </div>
 
+    <!-- id 将作为查询条件 -->
+    <div class="edit-link"
+      <span
+        :id="routePath"
+        class="leancloud_visitors"
+        data-flag-title="Your Article Title"
+      >
+        <em class="post-meta-item-text">阅读量：</em>
+        <i class="leancloud-visitors-count"></i>
+      </span>
+    </div>
     <div class="last-updated" v-if="lastUpdated">
       <span class="prefix">{{ lastUpdatedText }}:</span>
       <span class="time">{{ lastUpdated }}</span>
@@ -18,6 +31,9 @@ import { endingSlashRE, outboundRE } from "../util";
 export default {
   name: "PageEdit",
   computed: {
+    routePath() {
+      return this.$route.path;
+    },
     lastUpdated() {
       return this.$page.lastUpdated;
     },
