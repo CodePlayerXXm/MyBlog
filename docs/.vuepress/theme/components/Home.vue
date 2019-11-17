@@ -1,29 +1,31 @@
 <template>
   <div>
     <header class="hero">
-      <h2 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h2>
-      <p class="description">
+      <!-- <h2 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h2> -->
+      <h2 class="description">
         {{
         data.page.frontmatter.tagline ||
         $description ||
         "Welcome to your VuePress site"
         }}
-      </p>
+      </h2>
     </header>
     <main class="home" aria-labelledby="main-title">
       <div class="features">
         <BlogList :artList="site"></BlogList>
         <aside class="subbar">
-          <img src="../images/head.gif" alt="hero" class="personal-img" />
+          <div class="imgWrap">
+            <img src="../images/head.gif" alt="hero" class="personal-img" />
+          </div>
           <h3 class="name">Constable</h3>
           <div class="num">
             <div>
-              <h3>{{ pages }}</h3>
-              <h6>文章</h6>
+              <h4>文章</h4>
+              <p>{{ pages }}</p>
             </div>
             <div>
-              <h3>{{ tags }}</h3>
-              <h6>标签</h6>
+              <h4>标签</h4>
+              <p>{{ tags }}</p>
             </div>
           </div>
           <div>
@@ -83,11 +85,8 @@ export default {
 .hero
   padding-top $navbarHeight
   width 100%
-  // height 30rem
   text-align center
 
-  // background url('../../images/bgImg.jpg') center no-repeat
-  // background-size 100% auto
   h2
     border-bottom none
 
@@ -111,7 +110,6 @@ export default {
 
   .features
     padding 1.2rem 0
-    margin-top 2.5rem
     display flex
     align-items flex-start
 
@@ -127,6 +125,13 @@ export default {
       border-radius .25rem
       box-sizing border-box
       padding 20px
+      
+      .imgWrap
+        margin auto
+        width 13rem
+        height 13rem
+        border-radius 100%
+        background-color #eee 
 
       .personal-img
         display block
@@ -141,13 +146,16 @@ export default {
         margin 0 auto 1rem
         width 80%
 
+      .num > div > p,.num > div > h4
+        margin 0
+
       .num > div
         text-align center
         -webkit-box-flex 1
         flex auto
 
       .num > div:first-child
-        border-right 1px solid #333
+        border-right 1px solid #ccc
 
   .feature
     flex-grow 1
