@@ -14,18 +14,26 @@
         class="fontType"
         v-if="logoText"
         :class="{ 'can-hide': $site.themeConfig.logo }"
-      >{{ logoText }}</span>
+        >{{ logoText }}</span
+      >
     </router-link>
 
     <div
       class="links"
-      :style="linksWrapMaxWidth ? {
-        'max-width': linksWrapMaxWidth + 'px'
-      } : {}"
+      :style="
+        linksWrapMaxWidth
+          ? {
+              'max-width': linksWrapMaxWidth + 'px'
+            }
+          : {}
+      "
     >
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
       <SearchBox
-        v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"
+        v-else-if="
+          $site.themeConfig.search !== false &&
+            $page.frontmatter.search !== false
+        "
       />
       <NavLinks class="can-hide" />
     </div>
@@ -137,6 +145,7 @@ $navbar-horizontal-padding = 1.5rem
 
 @media (max-width: $MQMobile)
   .navbar
+
     padding-left 4rem
 
     .can-hide

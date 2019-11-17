@@ -10,7 +10,7 @@ yarn build
 cd docs/.vuepress/dist
 
 # 如果你是要部署到自定义域名
-# echo 'www.example.com' > CNAME
+echo 'constable.chat' > CNAME
 
 git init
 git add -A
