@@ -13,7 +13,7 @@
     <main class="home" aria-labelledby="main-title">
       <div class="features">
         <div class="articles">
-          <h4 class="showHide">文章列表</h4>
+          <p class="showHide">文章列表</p>
           <BlogList :artList="site"></BlogList>
           <div class="footer">{{ data.page.frontmatter.footer }}</div>
         </div>

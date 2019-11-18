@@ -104,7 +104,6 @@ $navbar-horizontal-padding = 1.5rem
   src url('../fonts/billcorporate.ttf')
 
 .navbar
-  border-radius .5rem
   box-shadow 0px 12px 8px -12px #000 
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
