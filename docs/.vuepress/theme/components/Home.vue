@@ -84,6 +84,10 @@ export default {
 </script>
 
 <style lang="stylus">
+@font-face
+  font-family 'logoFont'
+  src url('../fonts/billcorporate.ttf')
+
 .hero
   padding-top $navbarHeight
   width 100%
@@ -131,7 +135,7 @@ export default {
       top $navbarHeight
       transition all .3s
       height 100%
-      background-color #f6f6f6
+      background-image linear-gradient(#E6DADA, #fff)
       // box-shadow 0 1px 6px 0 rgba(0, 0, 0, .2)
       // border-radius .25rem
       box-sizing border-box
@@ -151,6 +155,7 @@ export default {
 
       .name
         text-align center
+        font-family 'logoFont'
 
       .num
         display flex
@@ -217,8 +222,7 @@ export default {
 
 @media (max-width: $MQMobileNarrow)
   .home
-    padding-left 1.5rem
-    padding-right 1.5rem
+    padding 0
 
     .hero
       img

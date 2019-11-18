@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '../styles/wrapper.styl'
+@import '../styles/wrapper.styl'
 
 .page
   padding-bottom 2rem

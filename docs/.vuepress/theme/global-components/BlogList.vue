@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       currentPage: 1,
-      list: this.artList
+      list: [...this.artList]
     };
   },
   watch: {
@@ -46,7 +46,6 @@ export default {
   },
   computed: {
     ...mapState(["selectedTag"]),
-
     // 时间排序
     timeList() {
       this.list.sort((a, b) => {
