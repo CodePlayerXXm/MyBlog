@@ -144,6 +144,7 @@ export default {
         width 13rem
         height 13rem
         border-radius 100%
+        box-shadow:3px 0 8px -4px #000;
 
       .personal-img
         display block
