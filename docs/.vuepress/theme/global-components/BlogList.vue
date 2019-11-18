@@ -1,5 +1,5 @@
 <template>
-  <article class="articles">
+  <div>
     <div v-for="(item, index) in curArticles" :key="index">
       <router-link :to="item.path">
         <section class="sectionWrap">
@@ -7,7 +7,7 @@
           <p>{{ item.frontmatter.features[0].details }}</p>
           <div class="lastLine">
             <Tags :tagsList="item.frontmatter.tag"></Tags>
-            <span class="time">{{ item.lastUpdated }}</span>
+            <em class="time">—— {{ item.lastUpdated }}</em>
           </div>
         </section>
       </router-link>
@@ -20,7 +20,7 @@
       layout="total,prev, pager, next, jumper"
       :total="pages"
     ></el-pagination>
-  </article>
+  </div>
 </template>
 
 <script>
@@ -54,6 +54,15 @@ export default {
           new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime()
         );
       });
+      this.list.forEach(item => {
+        if (!item.lastUpdated.includes("/")) {
+          return;
+        }
+        let date = item.lastUpdated.split(",")[0].split("/");
+        date.unshift(date[2]);
+        date.length = 3;
+        item.lastUpdated = date.join(".");
+      });
       return this.list;
     },
     // 分页
@@ -80,31 +89,26 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-.articles
-  -webkit-box-flex 1
-  flex auto
+.sectionWrap
+  margin 0 auto 20px
+  padding 16px 20px
+  width 100%
+  border-radius .25rem
+  box-shadow 0 1px 6px 0 rgba(0, 0, 0, .2)
+  overflow hidden
+  box-sizing border-box
+  transition all .3s
 
-  .sectionWrap
-    margin 0 auto 20px
-    padding 16px 20px
-    width 100%
-    overflow hidden
-    border-radius .25rem
-    box-shadow 0 1px 6px 0 rgba(0, 0, 0, .2)
-    box-sizing border-box
-    background-color #fff
-    transition all .3s
+  &:hover
+    box-shadow 0 2px 16px 0 rgba(0, 0, 0, .2)
+    // transform scale(1.005)
 
-    &:hover
-      box-shadow 0 2px 16px 0 rgba(0, 0, 0, .2)
-      transform scale(1.005)
+  .lastLine
+    display flex
+    justify-content space-between
 
-    .lastLine
-      display flex
-      justify-content space-between
-
-  .sectionWrap >>> .tagWrap:hover
-    box-shadow none
+.sectionWrap >>> .tagWrap:hover
+  box-shadow none
 
 @media (max-width: $MQMobile)
   .articles

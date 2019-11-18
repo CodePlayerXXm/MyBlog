@@ -14,8 +14,7 @@
         class="fontType"
         v-if="logoText"
         :class="{ 'can-hide': $site.themeConfig.logo }"
-        >{{ logoText }}</span
-      >
+      >{{ logoText }}</span>
     </router-link>
 
     <div
@@ -102,7 +101,7 @@ $navbar-horizontal-padding = 1.5rem
 
 @font-face
   font-family 'logoFont'
-  src url('../fonts/horizon.ttf')
+  src url('../fonts/billcorporate.ttf')
 
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
@@ -119,8 +118,10 @@ $navbar-horizontal-padding = 1.5rem
 
   .fontType
     font-family 'logoFont'
+    font-weight bolder
     font-size 1.2rem
     color #000
+    white-space nowrap
 
   .site-name
     font-size 1.3rem
@@ -145,8 +146,9 @@ $navbar-horizontal-padding = 1.5rem
 
 @media (max-width: $MQMobile)
   .navbar
-
-    padding-left 4rem
+    .home-link
+      margin-left 50%
+      transform translateX(-50%)
 
     .can-hide
       display none

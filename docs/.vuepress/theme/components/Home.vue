@@ -2,17 +2,21 @@
   <div>
     <header class="hero">
       <!-- <h2 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || "Hello" }}</h2> -->
-      <h2 class="description">
+      <!-- <h2 class="description">
         {{
-          data.page.frontmatter.tagline ||
-            $description ||
-            "Welcome to your VuePress site"
+        data.page.frontmatter.tagline ||
+        $description ||
+        "Welcome to your VuePress site"
         }}
-      </h2>
+      </h2>-->
     </header>
     <main class="home" aria-labelledby="main-title">
       <div class="features">
-        <BlogList :artList="site"></BlogList>
+        <div class="articles">
+          <h4 class="showHide">文章列表</h4>
+          <BlogList :artList="site"></BlogList>
+          <div class="footer">{{ data.page.frontmatter.footer }}</div>
+        </div>
         <aside class="subbar">
           <div class="imgWrap">
             <img src="../images/head.gif" alt="hero" class="personal-img" />
@@ -37,7 +41,6 @@
         </aside>
       </div>
     </main>
-    <div class="footer">{{ data.page.frontmatter.footer }}</div>
   </div>
 </template>
 
@@ -97,8 +100,9 @@ export default {
 
   .description
     max-width 35rem
+    height 20rem
     font-size 1.6rem
-    line-height 1.3
+    line-height 20rem
     color lighten($textColor, 40%)
 
 .home
@@ -108,29 +112,37 @@ export default {
   display block
 
   .features
-    padding 1.2rem 0
     display flex
+    position relative
     align-items flex-start
 
+    .articles
+      margin-left 330px
+      padding-top 1rem
+      -webkit-box-flex 1
+      flex auto
+
+      .showHide
+        display none
+
     .subbar
-      position sticky
-      top 70px
+      position fixed
+      width 300px
+      top $navbarHeight
       transition all .3s
-      margin-left 15px
-      flex 0 0 300px
-      height auto
-      background-color #fff
-      box-shadow 0 1px 6px 0 rgba(0, 0, 0, .2)
-      border-radius .25rem
+      height 100%
+      background-color #f6f6f6
+      // box-shadow 0 1px 6px 0 rgba(0, 0, 0, .2)
+      // border-radius .25rem
       box-sizing border-box
       padding 20px
-      
+
       .imgWrap
         margin auto
         width 13rem
         height 13rem
         border-radius 100%
-        background-color #eee 
+        background-color #eee
 
       .personal-img
         display block
@@ -145,7 +157,7 @@ export default {
         margin 0 auto 1rem
         width 80%
 
-      .num > div > p,.num > div > h4
+      .num > div > p, .num > div > h4
         margin 0
 
       .num > div
@@ -180,14 +192,23 @@ export default {
 
 @media (max-width: $MQMobile)
   .home
+    padding 0
+
     .features
       flex-direction column-reverse
+
+      .articles
+        width 100%
+        padding-top 0
+        margin-left 0
+
+        .showHide
+          display block
+          padding-left 1rem
 
       .subbar
         position static
         margin 0
-        margin-top .75rem
-        margin-bottom .75rem
         width 100%
 
     .feature
