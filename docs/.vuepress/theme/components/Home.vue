@@ -19,7 +19,7 @@
         </div>
         <aside class="subbar">
           <div class="imgWrap">
-            <img src="../images/head.png" alt="hero" class="personal-img" />
+            <img src="../images/head.jpg" alt="hero" class="personal-img" />
           </div>
           <h3 class="name">Constable</h3>
           <div class="num">
@@ -135,7 +135,7 @@ export default {
       top $navbarHeight
       transition all .3s
       height 100%
-      background-image linear-gradient(#bdc3c7, #fff)
+      background-image linear-gradient(#ddd,#fff)
       box-sizing border-box
       padding 20px
 
@@ -144,7 +144,6 @@ export default {
         width 13rem
         height 13rem
         border-radius 100%
-        background-color #fff
 
       .personal-img
         display block

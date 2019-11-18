@@ -41,7 +41,7 @@ export default {
   },
   watch: {
     artList(val) {
-      this.list = [...val];
+      this.list = val;
     }
   },
   mounted() {
