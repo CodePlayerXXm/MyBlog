@@ -1,19 +1,17 @@
 <template>
   <footer class="page-edit">
     <div class="edit-link" v-if="editLink">
-      <a :href="editLink" target="_blank" rel="noopener noreferrer">{{
+      <a :href="editLink" target="_blank" rel="noopener noreferrer">
+        {{
         editLinkText
-      }}</a>
+        }}
+      </a>
       <OutboundLink />
     </div>
 
     <!-- id 将作为查询条件 -->
-    <div class="edit-link"
-      <span
-        :id="routePath"
-        class="leancloud_visitors"
-        data-flag-title="Your Article Title"
-      >
+    <div class="edit-link">
+      <span :id="routePath" class="leancloud_visitors" data-flag-title="Your Article Title">
         <em class="post-meta-item-text">阅读量：</em>
         <i class="leancloud-visitors-count"></i>
       </span>
@@ -35,7 +33,7 @@ export default {
       return this.$route.path;
     },
     lastUpdated() {
-      return this.$page.lastUpdated;
+      return this.$page._lastUpdated;
     },
 
     lastUpdatedText() {

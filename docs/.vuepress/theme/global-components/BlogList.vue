@@ -41,8 +41,12 @@ export default {
   },
   watch: {
     artList(val) {
-      this.list = val;
+      this.list = [...val];
     }
+  },
+  mounted() {
+    // console.log(this.$site);
+    // console.log(this.$page);
   },
   computed: {
     ...mapState(["selectedTag"]),
@@ -57,6 +61,7 @@ export default {
         if (!item.lastUpdated.includes("/")) {
           return;
         }
+        item._lastUpdated = item.lastUpdated;
         let date = item.lastUpdated.split(",")[0].split("/");
         date.unshift(date[2]);
         date.length = 3;
