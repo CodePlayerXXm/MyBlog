@@ -135,7 +135,7 @@ export default {
       top $navbarHeight
       transition all .3s
       height 100%
-      background-image linear-gradient(#eee, #fff)
+      background-image linear-gradient(#bdc3c7, #fff)
       box-sizing border-box
       padding 20px
 
