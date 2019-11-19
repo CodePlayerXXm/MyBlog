@@ -69,6 +69,7 @@ export default {
   font-size .75rem
   transition .3s all
   cursor pointer
+  line-height 1rem
 
   &:hover, &.current
     box-shadow inset 0 1px 3px 1px #333
