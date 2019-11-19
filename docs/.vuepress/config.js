@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: "一位前端工程师的修炼笔记",
+  title: "Love the life,after recognize the truth of life",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -18,6 +18,14 @@ module.exports = {
   head: [
     ["meta", { name: "theme-color", content: "#3eaf7c" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+    [
+      "meta",
+      {
+        name: "viewport",
+        content:
+          "width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"
+      }
+    ],
     [
       "meta",
       { name: "apple-mobile-web-app-status-bar-style", content: "black" }
