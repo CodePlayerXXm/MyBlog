@@ -15,7 +15,6 @@
         <div class="articles">
           <p class="showHide">文章列表</p>
           <BlogList :artList="site"></BlogList>
-          <div class="footer">{{ data.page.frontmatter.footer }}</div>
         </div>
         <aside class="subbar">
           <div class="imgWrap">
@@ -41,6 +40,7 @@
         </aside>
       </div>
     </main>
+    <div class="footer">{{ data.page.frontmatter.footer }}</div>
   </div>
 </template>
 
@@ -121,7 +121,7 @@ export default {
     align-items flex-start
 
     .articles
-      margin-left 330px
+      margin-right 20px
       padding-top 1rem
       -webkit-box-flex 1
       flex auto
@@ -130,21 +130,19 @@ export default {
         display none
 
     .subbar
-      position fixed
       width 300px
-      top $navbarHeight
       transition all .3s
-      height 100%
-      background-image linear-gradient(#ddd,#fff)
+      min-height 600px
+      background-image linear-gradient(#ddd, #fff)
       box-sizing border-box
-      padding 20px
+      padding 2rem 1rem 0 1rem
 
       .imgWrap
         margin auto
         width 13rem
         height 13rem
         border-radius 100%
-        box-shadow:3px 0 8px -4px #000;
+        box-shadow 3px 0 8px -4px #000
 
       .personal-img
         display block
@@ -157,7 +155,7 @@ export default {
 
       .num
         display flex
-        margin 0 auto 1rem
+        margin 0 auto 4rem
         width 80%
 
       .num > div > p, .num > div > h4
@@ -188,8 +186,8 @@ export default {
 
 .footer
   margin-top 2rem
-  padding 2.5rem
-  border-top 1px solid $borderColor
+  width 100%
+  padding 2.5rem 0
   text-align center
   color lighten($textColor, 25%)
 
@@ -201,18 +199,16 @@ export default {
       flex-direction column-reverse
 
       .articles
-        width 100%
-        padding-top 0
-        margin-left 0
+        padding 0 1rem
+        margin-right 0
 
         .showHide
           display block
-          padding-left 1rem
 
       .subbar
-        position static
         margin 0
         width 100%
+        min-height 0
 
     .feature
       max-width 100%

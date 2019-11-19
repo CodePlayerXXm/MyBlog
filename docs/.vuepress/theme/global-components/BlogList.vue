@@ -113,8 +113,4 @@ export default {
 
 .sectionWrap >>> .tagWrap:hover
   box-shadow none
-
-@media (max-width: $MQMobile)
-  .articles
-    width 100%
 </style>
