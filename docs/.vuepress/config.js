@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: "Love the life,after recognize the truth of life",
+  title: "人生很短，珍惜当下。",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
