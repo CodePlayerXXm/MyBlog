@@ -44,10 +44,6 @@ export default {
       this.list = val;
     }
   },
-  mounted() {
-    // console.log(this.$site);
-    // console.log(this.$page);
-  },
   computed: {
     ...mapState(["selectedTag"]),
     // 时间排序
