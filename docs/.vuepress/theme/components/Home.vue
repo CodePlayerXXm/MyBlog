@@ -13,7 +13,7 @@
     <main class="home" aria-labelledby="main-title">
       <div class="features">
         <div class="articles">
-          <p class="showHide">文章列表</p>
+          <p class="showHide fontBig">文章列表</p>
           <BlogList :artList="site"></BlogList>
         </div>
         <aside class="subbar">
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div>
-            <div>标签墙</div>
+            <div class="fontBig">标签</div>
             <div style="padding-top:0.75rem">
               <Tags :tagsList="tag" @jump="goTagList"></Tags>
             </div>
@@ -119,6 +119,9 @@ export default {
     display flex
     position relative
     align-items flex-start
+    
+    .fontBig
+      font-size 1.2rem
 
     .articles
       margin-right 20px
@@ -132,10 +135,11 @@ export default {
     .subbar
       width 300px
       transition all .3s
-      min-height 600px
+      border-radius .25rem
+      box-shadow 0 1px 6px 0 rgba(0, 0, 0, .2)
       background-image linear-gradient(#ddd, #fff)
       box-sizing border-box
-      padding 2rem 1rem 0 1rem
+      padding 2rem 1rem 1rem 1rem
 
       .imgWrap
         margin auto
@@ -185,7 +189,8 @@ export default {
       color lighten($textColor, 25%)
 
 .footer
-  margin-top 2rem
+  position absolute
+  bottom 0
   width 100%
   padding 2.5rem 0
   text-align center
@@ -213,6 +218,9 @@ export default {
     .feature
       max-width 100%
       padding 0 2.5rem
+
+  .footer
+    position static
 
 @media (max-width: $MQMobileNarrow)
   .home
