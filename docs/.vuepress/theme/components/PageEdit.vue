@@ -33,7 +33,7 @@ export default {
       return this.$route.path;
     },
     lastUpdated() {
-      return this.$page._lastUpdated;
+      return this.$page.lastUpdated;
     },
 
     lastUpdatedText() {

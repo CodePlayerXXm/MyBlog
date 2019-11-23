@@ -7,7 +7,7 @@
           <p>{{ item.frontmatter.features[0].details }}</p>
           <div class="lastLine">
             <Tags :tagsList="item.frontmatter.tag"></Tags>
-            <em class="time">—— {{ item.lastUpdated }}</em>
+            <em class="time">—— {{ item._lastUpdated }}</em>
           </div>
         </section>
       </router-link>
@@ -57,11 +57,10 @@ export default {
         if (!item.lastUpdated.includes("/")) {
           return;
         }
-        item._lastUpdated = item.lastUpdated;
         let date = item.lastUpdated.split(",")[0].split("/");
         date.unshift(date[2]);
         date.length = 3;
-        item.lastUpdated = date.join(".");
+        item._lastUpdated = date.join(".");
       });
       return this.list;
     },
