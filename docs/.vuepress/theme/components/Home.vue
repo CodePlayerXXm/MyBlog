@@ -18,7 +18,7 @@
         </div>
         <aside class="subbar">
           <div class="imgWrap">
-            <img src="../images/head.jpg" alt="hero" class="personal-img" />
+            <img src="../images/head.gif" alt="hero" class="personal-img" />
           </div>
           <h3 class="name">Constable</h3>
           <div class="num">
@@ -119,7 +119,7 @@ export default {
     display flex
     position relative
     align-items flex-start
-    
+
     .fontBig
       font-size 1.2rem
 
