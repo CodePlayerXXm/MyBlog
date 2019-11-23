@@ -159,7 +159,7 @@ export default {
 
       .num
         display flex
-        margin 0 auto 4rem
+        margin 0 auto 2rem
         width 80%
 
       .num > div > p, .num > div > h4
@@ -214,6 +214,10 @@ export default {
         margin 0
         width 100%
         min-height 0
+
+        .imgWrap
+          width 18rem
+          height 18rem
 
     .feature
       max-width 100%
