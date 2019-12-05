@@ -30,7 +30,8 @@ export default {
         color4: "Javascript",
         color5: "CSS",
         color6: "React",
-        color7: "HTML"
+        color7: "HTML",
+        color8: "网易云课堂笔记",
       }
     };
   },
@@ -81,7 +82,7 @@ export default {
     background-color #FF416C
 
   &.color3
-    background-color #00F260
+    background-color #41b883
 
   &.color4
     background-color #FF4B2B
@@ -94,4 +95,7 @@ export default {
 
   &.color7
     background-color #8360c3
+
+  &.color8
+    background-color #39a030
 </style>
