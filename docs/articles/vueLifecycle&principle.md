@@ -5,43 +5,45 @@ tag:
   - Vue
   - 网易云课堂笔记
 features:
-  - title: Vue原理及生命周期
+  - title: Vue内部运行机制及生命周期
     details: Vue内部运行机制、及各生命周期的不同。
 ---
 
-# Vue内部运行
+# Vue内部运行机制及生命周期
+
+## Vue内部运行机制
 
 <img style="display:table;margin:auto" src="../.vuepress/images/principle.jpg" />
 
-## 初始化与挂载
+### 初始化与挂载
 
 <img style="display:table;margin:auto" src="../.vuepress/images/principle1.jpg" />
 
-## 模板编译
+### 模板编译
 
 <img style="display:table;margin:auto" src="../.vuepress/images/principle2.jpg" />
 
 <font color="color:#ff0000">* **抽象语法树是JSON格式的对象**</font>
 
-## 数据响应
+### 数据响应
 
 <img style="display:table;margin:auto" src="../.vuepress/images/principle3.jpg" />
 
-## 更新视图
+### 更新视图
 
 <img style="display:table;margin:auto" src="../.vuepress/images/principle4.jpg" />
 
-# Vue生命周期
+## Vue生命周期
 
-## 完整的生命周期流程
+### 完整的生命周期流程
 
 <img style="display:table;margin:auto" src="../.vuepress/images/lifecycle.png" />
 
-## 各生命周期el与data的不同
+### 各生命周期el与data的不同
 
 <img style="display:table;margin:auto" src="../.vuepress/images/lifecycle1.jpg" />
 
-## 各生命周期详解
+### 各生命周期详解
 
 <img style="display:table;margin:auto" src="../.vuepress/images/lifecycle2.jpg" />
 
@@ -49,7 +51,7 @@ features:
 
 <img style="display:table;margin:auto" src="../.vuepress/images/lifecycle4.jpg" />
 
-## 代码示例
+### 代码示例
 
 ```javascript
 <script type="text/javascript">
