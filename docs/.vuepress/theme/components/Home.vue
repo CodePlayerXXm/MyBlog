@@ -133,6 +133,7 @@ export default {
         display none
 
     .subbar
+      margin-top 1rem
       width 300px
       transition all .3s
       border-radius .25rem
@@ -189,8 +190,6 @@ export default {
       color lighten($textColor, 25%)
 
 .footer
-  position absolute
-  bottom 0
   width 100%
   padding 2.5rem 0
   text-align center
