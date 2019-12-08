@@ -48,7 +48,9 @@ Vue.prototype.observe = function(obj) {
     } else {
       Object.defineProperty(obj, key, {
         get() {
-          //真正的源码内此处会进行依赖收集，依赖收集是指确定这个对象是在哪个组件中，更新时只修改这个组建中的对象
+          // 真正的源码内,此处会进行依赖收集，
+          // 依赖收集是指确定这个对象是在哪个组件中，
+          // 更新时只修改这个组件中的对象
           return value;
         },
         set(newVal) {
@@ -64,4 +66,21 @@ Vue.prototype.redner = function() {
   this.virtualdom = "this is " + this.$data.a;
   this.el.innerHTML = this.virtualdom;
 };
+
+//数组的监听
+//Vue数组的特性，只监听数组的方法：push、pop、shift、unshift
+var arrayProto = Array.prototype
+var arrayOb = Object.create(arraypro)
+var funcArr = ['push','pop','shift','unshift']
+//装饰者模式
+funcArr.forEach(method=>{
+  arrayOb[method] =function(){
+    var ret = arrayProto[method].apply(this,arguments);
+    Dep.notify()
+    return ret
+  }
+})
 ```
+## Vue3 中 Proxy 实现数据响应
+
+### Proxy
