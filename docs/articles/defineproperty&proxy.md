@@ -83,4 +83,3 @@ funcArr.forEach(method=>{
 ```
 ## Vue3 中 Proxy 实现数据响应
 
-### Proxy
