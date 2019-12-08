@@ -14,7 +14,7 @@ features:
 
 defineProperty 这个 API 并不是作为做数据响应而生的，他作用是描述一个对象的某个属性的。他可以设置的属性如下：
 
-```JavaScript
+```javaScript
 
 Object.defineProperty(obj,key,{
   enumerable: false, //是否可枚举
@@ -25,4 +25,43 @@ Object.defineProperty(obj,key,{
   set(){}//改写这个属性的值时，触发的钩子函数
 })
 
+```
+
+其中 get 与 set 钩子函数被发现可以用来做数据响应，Vue2 中实现大体如下：
+
+```javascript
+function Vue() {
+  this.$data = { a: 1 };
+  this.el = document.getElementById("app");
+  this.virtualDom = "";
+  this.observe(this.$data);
+  this.render();
+}
+
+Vue.prototype.observe = function(obj) {
+  var self = this;
+  var value;
+  for (var key in obj) {
+    value = obj[key];
+    if (typeof value === object) {
+      this.observe(value);
+    } else {
+      Object.defineProperty(obj, key, {
+        get() {
+          //真正的源码内此处会进行依赖收集，依赖收集是指确定这个对象是在哪个组件中，更新时只修改这个组建中的对象
+          return value;
+        },
+        set(newVal) {
+          value = newVal;
+          self.render();
+        }
+      });
+    }
+  }
+};
+
+Vue.prototype.redner = function() {
+  this.virtualdom = "this is " + this.$data.a;
+  this.el.innerHTML = this.virtualdom;
+};
 ```
