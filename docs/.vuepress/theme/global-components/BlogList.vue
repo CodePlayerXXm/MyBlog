@@ -30,19 +30,19 @@ export default {
   props: {
     artList: {
       required: true,
-      type: Array
-    }
+      type: Array,
+    },
   },
   data() {
     return {
       currentPage: 1,
-      list: [...this.artList]
+      list: [...this.artList],
     };
   },
   watch: {
     artList(val) {
       this.list = val;
-    }
+    },
   },
   computed: {
     ...mapState(["selectedTag"]),
@@ -53,8 +53,9 @@ export default {
           new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime()
         );
       });
-      this.list.forEach(item => {
-        if (!item.lastUpdated.includes("/")) {
+      this.list.forEach((item) => {
+        console.log(item);
+        if (!item.lastUpdated || !item.lastUpdated.includes("/")) {
           return;
         }
         let date = item.lastUpdated.split(",")[0].split("/");
@@ -78,13 +79,13 @@ export default {
     },
     pages() {
       return this.artList.length;
-    }
+    },
   },
   methods: {
     pageChange(val) {
       this.currentPage = val;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="stylus" scoped>
