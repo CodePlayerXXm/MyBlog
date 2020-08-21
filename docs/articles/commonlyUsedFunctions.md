@@ -2,7 +2,7 @@
 sidebar: auto
 tag:
   - 技术
-  - Vue
+  - JavaScript
   - 网易云课堂笔记
 features:
   - title: 一些常用函数
@@ -58,7 +58,7 @@ let memorize = function(func, hash) {
   return memorize;
 };
 
-let fibonacci = (i) => {
+let fibonacci = i => {
   count++;
   if (i === 0 || i === 1) {
     return 1;
@@ -95,7 +95,7 @@ console.log(count); //11,不用memorize函数的话，此处输出是453
 ```javascript
 let add = (x, y, z, a) => x + y + z + a;
 
-let curry = (fn) => {
+let curry = fn => {
   let limit = fn.length;
   let judgeCurry = (...args) =>
     args.length >= limit
