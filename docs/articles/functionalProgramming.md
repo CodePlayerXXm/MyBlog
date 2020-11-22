@@ -2,7 +2,7 @@
 sidebar: auto
 tag:
   - 技术
-  - Javascript
+  - JavaScript
   - 网易云课堂笔记
 features:
   - title: 函数式编程
@@ -50,7 +50,7 @@ features:
 <br/>
 <img style="display:table;margin:auto" src="../.vuepress/images/functionalProgramming/functionalProgramming9.png" />
 
-```Javascript
+```JavaScript
     const add = a => a + 10
     const multi = a => a * 10
 

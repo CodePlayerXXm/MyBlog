@@ -6,7 +6,8 @@
       v-for="(item, index) in tagsList"
       :key="index"
       @click="selectTag(item)"
-    >{{item}}</span>
+      >{{ item }}</span
+    >
   </div>
 </template>
 
@@ -15,11 +16,11 @@ export default {
   props: {
     tagsList: {
       required: true,
-      type: Array
+      type: Array,
     },
     currentTag: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
@@ -27,17 +28,18 @@ export default {
         color1: "技术",
         color2: "生活",
         color3: "Vue",
-        color4: "Javascript",
+        color4: "JavaScript",
         color5: "CSS",
         color6: "React",
         color7: "HTML",
         color8: "网易云课堂笔记",
-      }
+        color9: "Git",
+      },
     };
   },
   computed: {
     colorNum() {
-      return val => {
+      return (val) => {
         let current = val === this.currentTag ? true : false;
         for (let keys in this.colors) {
           if (this.colors[keys] === val) {
@@ -45,14 +47,14 @@ export default {
           }
         }
       };
-    }
+    },
   },
   methods: {
     selectTag(val) {
       this.$store.commit("selectTag", val);
       this.$emit("jump");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="stylus" scoped>
@@ -98,4 +100,7 @@ export default {
 
   &.color8
     background-color #39a030
+
+  &.color9
+    background-color #000
 </style>

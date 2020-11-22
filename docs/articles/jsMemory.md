@@ -2,7 +2,7 @@
 sidebar: auto
 tag:
   - 技术
-  - Javascript
+  - JavaScript
 features:
   - title: JavaScript内存管理机制与其一些运行规则
     details: 浅析JavaScript内存管理机制跟一些js基础的运行规则

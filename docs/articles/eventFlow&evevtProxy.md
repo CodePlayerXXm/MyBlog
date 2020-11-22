@@ -2,7 +2,7 @@
 sidebar: auto
 tag:
   - 技术
-  - Javascript
+  - JavaScript
 features:
   - title: 事件流与事件委托
     details: 所谓事件流是描述指页面上DOM事件执行的先后顺序。而事件委托是利用事件流的冒泡，在父元素上监听子元素事件触发的一种优化处理方式。
@@ -29,8 +29,8 @@ export default {
   methods: {
     handleClick(sth) {
       alert(sth);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="stylus" scoped>
@@ -121,7 +121,7 @@ export default {
       },
       true
     );
-  }
+  },
 };
 </script>
 <style lang="stylus" scoped>
@@ -168,7 +168,7 @@ export default {
     parent.addEventListener("click", event => {
       console.log(event.target.innerText);
     });
-  }
+  },
 };
 </script>
 <style lang="stylus" scoped>
