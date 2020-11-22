@@ -8,9 +8,11 @@ features:
     details: TypeScript 简化官网的中文文档
 ---
 
-# 基础类型
+# 基础类型与变量声明
 
-## 布尔、数字、字符串
+## 基础类型
+
+### 布尔、数字、字符串
 
 ```typescript
 //布尔
@@ -24,7 +26,7 @@ let octalLiteral: number = 0o744;
 let name: string = "bob";
 ```
 
-## 数组
+### 数组
 
 ```typescript
 //第一种写法
@@ -33,7 +35,7 @@ let list: number[] = [1, 2, 3]; //数字
 let list: Array<number> = [1, 2, 3];
 ```
 
-## 元组
+### 元组
 
 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。 比如，你可以定义一对值分别为 string 和 number 类型的元组。
 
@@ -53,7 +55,7 @@ console.log(x[5].toString()); // OK, 'string' 和 'number' 都有 toString
 x[6] = true; // Error, 布尔不是(string | number)类型
 ````
 
-## 枚举
+### 枚举
 
 enum 类型是对 JavaScript 标准数据类型的一个补充。 像 C#等其它语言一样，使用枚举类型可以为一组数值赋予友好的名字。
 
@@ -88,7 +90,7 @@ let colorName: string = Color[2];
 console.log(colorName); // 显示'Green'因为上面代码里它的值是2
 ```
 
-## Any
+### Any
 
 有时候，我们会想要为那些在编程阶段还不清楚类型的变量指定一个类型。 这些值可能来自于动态的内容，比如来自用户输入或第三方代码库。 这种情况下，我们不希望类型检查器对这些值进行检查而是直接让它们通过编译阶段的检查。 那么我们可以使用 any 类型来标记这些变量：
 
@@ -123,7 +125,7 @@ let list: any[] = [1, true, "free"];
 list[1] = 100;
 ```
 
-## Void
+### Void
 
 某种程度上来说，void 类型像是与 any 类型相反，它表示没有任何类型。 当一个函数没有返回值时，你通常会见到其返回值类型是 void
 
@@ -139,7 +141,7 @@ function warnUser(): void {
 let unusable: void = undefined;
 ```
 
-## Null 和 Undefined
+### Null 和 Undefined
 
 TypeScript 里，undefined 和 null 两者各自有自己的类型分别叫做 undefined 和 null。 和 void 相似，它们的本身的类型用处不是很大：
 
@@ -151,7 +153,7 @@ let n: null = null;
 
 然而，当你指定了--strictNullChecks 标记，null 和 undefined 只能赋值给 void 和它们各自。 这能避免 很多常见的问题。 也许在某处你想传入一个 string 或 null 或 undefined，你可以使用联合类型 string | null | undefined。 再次说明，稍后我们会介绍联合类型。
 
-## Never
+### Never
 
 never 类型表示的是那些永不存在的值的类型。 例如， never 类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型； 变量也可能是 never 类型，当它们被永不为真的类型保护所约束时。
 
@@ -176,7 +178,7 @@ function infiniteLoop(): never {
 }
 ```
 
-## Object
+### Object
 
 object 表示非原始类型，也就是除 number，string，boolean，symbol，null 或 undefined 之外的类型。
 
@@ -196,7 +198,7 @@ create(undefined); // Error
 
 \*\* 感觉这个例子并没有什么卵用
 
-## 类型断言
+### 类型断言
 
 有时候你会遇到这样的情况，你会比 TypeScript 更了解某个值的详细信息。 通常这会发生在你清楚地知道一个实体具有比它现有类型更确切的类型。
 
@@ -218,13 +220,13 @@ let strLength: number = (someValue as string).length;
 
 两种形式是等价的。 至于使用哪个大多数情况下是凭个人喜好；然而，当你在 TypeScript 里使用 JSX 时，只有 as 语法断言是被允许的。
 
-# 变量声明
+## 变量声明
 
 官网中文文档，大部分讲的都是 es6 的东西，ts 的不同之处主要如下：
 
-## 解构
+### 解构
 
-### 解构数组
+#### 解构数组
 
 ```typescript
 //第一个方括号是解构，第二个是类型
@@ -235,7 +237,7 @@ function f([first, second]: [number, number]) {
 f(input);
 ```
 
-### 解构对象
+#### 解构对象
 
 ```typescript
 // 重命名属性
@@ -248,7 +250,7 @@ function keepWholeObject(wholeObject: { a: string; b?: number }) {
 }
 ```
 
-## 函数的声明
+### 函数的声明
 
 ```typescript
 type C = { a: string; b?: number };
@@ -272,7 +274,7 @@ f(); // ok, default to {a: ""}, which then defaults b = 0
 f({}); // error, 'a' is required if you supply an argument
 ```
 
-## 展开符...
+### 展开符...
 
 对象展开还有其它一些意想不到的限制。 首先，它仅包含对象 自身的可枚举属性。 大体上是说当你展开一个对象实例时，你会丢失其方法：
 
