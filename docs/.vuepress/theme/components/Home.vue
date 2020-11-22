@@ -33,7 +33,7 @@
           </div>
           <div>
             <div class="fontBig">标签</div>
-            <div style="padding-top:0.75rem">
+            <div style="padding-top: 0.75rem">
               <Tags :tagsList="tag" @jump="goTagList"></Tags>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default {
   components: { NavLink },
   data() {
     return {
-      currentPage: 1
+      currentPage: 1,
     };
   },
   computed: {
@@ -71,15 +71,15 @@ export default {
     },
     data() {
       return {
-        page: this.$page
+        page: this.$page,
       };
-    }
+    },
   },
   methods: {
     goTagList(val) {
       this.$router.push({ path: "/tags/" });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -195,7 +195,7 @@ export default {
   text-align center
   color lighten($textColor, 25%)
 
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
   .home
     padding 0
 
@@ -225,7 +225,7 @@ export default {
   .footer
     position static
 
-@media (max-width: $MQMobileNarrow)
+@media (max-width $MQMobileNarrow)
   .home
     padding 0
 

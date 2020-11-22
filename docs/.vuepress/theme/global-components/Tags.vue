@@ -34,6 +34,7 @@ export default {
         color7: "HTML",
         color8: "网易云课堂笔记",
         color9: "Git",
+        color10: "TypeScript",
       },
     };
   },
@@ -61,7 +62,7 @@ export default {
 .tagsWrap
   display inline-flex
   flex-wrap wrap
-  justify-content space-between
+  justify-content flex-start
 
 .tagWrap
   margin 0 .3rem .3rem 0
@@ -103,4 +104,7 @@ export default {
 
   &.color9
     background-color #000
+
+  &.color10
+    background-color #294E80
 </style>
