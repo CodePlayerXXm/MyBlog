@@ -110,5 +110,5 @@ export default {
     background-color #294E80
 
   &.color11
-    background-color rgba(141,214,249,1
+    background-color rgba(141,214,249,1)
 </style>
