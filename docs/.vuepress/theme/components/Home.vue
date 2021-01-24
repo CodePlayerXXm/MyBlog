@@ -127,7 +127,7 @@ export default {
       margin-right 20px
       padding-top 1rem
       -webkit-box-flex 1
-      flex auto
+      flex 1
 
       .showHide
         display none
