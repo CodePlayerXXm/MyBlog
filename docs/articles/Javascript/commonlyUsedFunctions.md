@@ -16,10 +16,10 @@ features:
 ### 定义与作用
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions1.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions1.png" />
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions2.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions2.png" />
 
 ### 代码实现
 
@@ -58,7 +58,7 @@ let memorize = function(func, hash) {
   return memorize;
 };
 
-let fibonacci = i => {
+let fibonacci = (i) => {
   count++;
   if (i === 0 || i === 1) {
     return 1;
@@ -80,13 +80,13 @@ console.log(count); //11,不用memorize函数的话，此处输出是453
 ### 定义与作用
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions3.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions3.png" />
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions4.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions4.png" />
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions5.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions5.png" />
 
 - 提高函数复用的一种方式。
 
@@ -95,7 +95,7 @@ console.log(count); //11,不用memorize函数的话，此处输出是453
 ```javascript
 let add = (x, y, z, a) => x + y + z + a;
 
-let curry = fn => {
+let curry = (fn) => {
   let limit = fn.length;
   let judgeCurry = (...args) =>
     args.length >= limit
@@ -115,10 +115,10 @@ console.log(test(4)); //10
 ### 定义与作用
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions6.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions6.png" />
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions7.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/commonlyUsedFunctions/commonlyUsedFunctions7.png" />
 
 - 其实上面的 curry 函数已经实现了偏函数，写了一个可以用 undefined 占位，传参的偏函数
 

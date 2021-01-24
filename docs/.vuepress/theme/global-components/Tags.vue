@@ -35,6 +35,7 @@ export default {
         color8: "网易云课堂笔记",
         color9: "Git",
         color10: "TypeScript",
+        color11: "Webpack",
       },
     };
   },
@@ -107,4 +108,7 @@ export default {
 
   &.color10
     background-color #294E80
+
+  &.color11
+    background-color rgba(141,214,249,1)
 </style>

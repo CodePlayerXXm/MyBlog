@@ -14,13 +14,13 @@ features:
 ## 定义与作用
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/debounce&throttle/debounce&throttle1.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/debounce&throttle/debounce&throttle1.png" />
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/debounce&throttle/debounce&throttle2.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/debounce&throttle/debounce&throttle2.png" />
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/debounce&throttle/debounce&throttle3.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/debounce&throttle/debounce&throttle3.png" />
 
 ## 代码实现
 
@@ -86,17 +86,17 @@ export default {
 最终效果：
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/debounce&throttle/debounce&throttle6.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/debounce&throttle/debounce&throttle6.png" />
 
 # 节流
 
 ## 定义与作用
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/debounce&throttle/debounce&throttle4.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/debounce&throttle/debounce&throttle4.png" />
 
 <br/>
-<img style="display:table;margin:auto" src="../.vuepress/images/debounce&throttle/debounce&throttle5.png" />
+<img style="display:table;margin:auto" src="../../.vuepress/images/debounce&throttle/debounce&throttle5.png" />
 
 ## 代码实现
 
