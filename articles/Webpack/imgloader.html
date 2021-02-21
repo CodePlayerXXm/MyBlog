@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>人生很短，珍惜当下。</title>
+    <meta name="description" content="my_blog">
+    <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="icon" href="/favicon.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.3613f7cf.css" as="style"><link rel="preload" href="/assets/js/app.b7512ca0.js" as="script"><link rel="preload" href="/assets/js/10.295130ab.js" as="script"><link rel="preload" href="/assets/js/2.d228b45c.js" as="script"><link rel="preload" href="/assets/js/32.89e539d8.js" as="script"><link rel="prefetch" href="/assets/js/1.18be4495.js"><link rel="prefetch" href="/assets/js/11.d235d6d8.js"><link rel="prefetch" href="/assets/js/12.bc395f97.js"><link rel="prefetch" href="/assets/js/13.2b8d3c22.js"><link rel="prefetch" href="/assets/js/14.5f89eac6.js"><link rel="prefetch" href="/assets/js/15.110ca7aa.js"><link rel="prefetch" href="/assets/js/16.34160e70.js"><link rel="prefetch" href="/assets/js/17.408e2ca1.js"><link rel="prefetch" href="/assets/js/18.1bd68f7b.js"><link rel="prefetch" href="/assets/js/19.e8968da6.js"><link rel="prefetch" href="/assets/js/20.d6503bc1.js"><link rel="prefetch" href="/assets/js/21.19a3fae0.js"><link rel="prefetch" href="/assets/js/22.28d04f79.js"><link rel="prefetch" href="/assets/js/23.b0cddec0.js"><link rel="prefetch" href="/assets/js/24.e953b523.js"><link rel="prefetch" href="/assets/js/25.aa562cf6.js"><link rel="prefetch" href="/assets/js/26.51ed2e97.js"><link rel="prefetch" href="/assets/js/27.fdfa66f8.js"><link rel="prefetch" href="/assets/js/28.2dcbb1a6.js"><link rel="prefetch" href="/assets/js/29.57437847.js"><link rel="prefetch" href="/assets/js/30.ac8825b3.js"><link rel="prefetch" href="/assets/js/31.a2d50cbe.js"><link rel="prefetch" href="/assets/js/33.563931e4.js"><link rel="prefetch" href="/assets/js/34.fe2a53e1.js"><link rel="prefetch" href="/assets/js/35.ee76fda9.js"><link rel="prefetch" href="/assets/js/4.237f160b.js"><link rel="prefetch" href="/assets/js/5.124b3bf4.js"><link rel="prefetch" href="/assets/js/6.31fffac0.js"><link rel="prefetch" href="/assets/js/7.c849301e.js"><link rel="prefetch" href="/assets/js/8.41a1c678.js"><link rel="prefetch" href="/assets/js/9.ba5e723d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3613f7cf.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="fontType">Constable's Notebook</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link" data-v-40ceb9b0><span class="iconfont icon-zhuye" data-v-40ceb9b0></span>
+  主页
+</a></div><div class="nav-item"><a href="/tags/" class="nav-link" data-v-40ceb9b0><span class="iconfont icon-biaoqian" data-v-40ceb9b0></span>
+  标签
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link" data-v-40ceb9b0><span class="iconfont icon-zhuye" data-v-40ceb9b0></span>
+  主页
+</a></div><div class="nav-item"><a href="/tags/" class="nav-link" data-v-40ceb9b0><span class="iconfont icon-biaoqian" data-v-40ceb9b0></span>
+  标签
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span></span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>如果打完包之后图片的路径错误，调试各个 loader 的 publicPath 可以修正。</p> <p>webpack.config.js</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> MiniCssExtractPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;mini-css-extract-plugin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;html-webpack-plugin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;webpack&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">&quot;development&quot;</span><span class="token punctuation">,</span>
+  target<span class="token punctuation">:</span> <span class="token string">&quot;web&quot;</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    index<span class="token punctuation">:</span> <span class="token string">&quot;./app.js&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// index: [&quot;babel-polyfill&quot;, &quot;/app.js&quot;],</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">&quot;[name].[hash:8].bundle.js&quot;</span><span class="token punctuation">,</span> <span class="token comment">//name是entry的键明——index</span>
+    <span class="token comment">// publicPath: &quot;../&quot;, //css,js（head标签内）等引入的资源的统一的路径</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.scss$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              publicPath<span class="token punctuation">:</span> <span class="token string">&quot;../&quot;</span><span class="token punctuation">,</span> <span class="token comment">//把css里的图片等资源url加上../</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> <span class="token string">&quot;css-loader&quot;</span><span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              <span class="token comment">// url: false,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+          <span class="token string">&quot;postcss-loader&quot;</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;sass-loader&quot;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.(png|jpg|gif)$/i</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> <span class="token string">&quot;url-loader&quot;</span><span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              name<span class="token punctuation">:</span> <span class="token string">&quot;[name].[hash:8].[ext]&quot;</span><span class="token punctuation">,</span>
+              outputPath<span class="token punctuation">:</span> <span class="token string">&quot;assets/img&quot;</span><span class="token punctuation">,</span> <span class="token comment">//打包后的图片放在哪</span>
+              <span class="token comment">// publicPath: &quot;assets/img&quot;, //图片文件名前的统一路径，加了之后无论是css还是HTML里都会加</span>
+              limit<span class="token punctuation">:</span> <span class="token number">5000</span><span class="token punctuation">,</span> <span class="token comment">//设置图片转base64的阈值</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> <span class="token string">&quot;img-loader&quot;</span><span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;imagemin-gifsicle&quot;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                  optimizationLevel<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment">//1-3越大压缩越厉害</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;imagemin-mozjpeg&quot;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                  quality<span class="token punctuation">:</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token comment">//1-100越小压缩越厉害</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;imagemin-pngquant&quot;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                  speed<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token comment">//1-11越小压缩越厉害</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.html$/i</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          loader<span class="token punctuation">:</span> <span class="token string">&quot;html-loader&quot;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">MiniCssExtractPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      filename<span class="token punctuation">:</span> <span class="token string">&quot;./css/[name].min.css&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      filename<span class="token punctuation">:</span> <span class="token string">&quot;index.html&quot;</span><span class="token punctuation">,</span>
+      template<span class="token punctuation">:</span> <span class="token string">&quot;./index.html&quot;</span><span class="token punctuation">,</span>
+      favicon<span class="token punctuation">:</span> <span class="token string">&quot;./assets/img/aaa.jpg&quot;</span><span class="token punctuation">,</span>
+      meta<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        viewport<span class="token punctuation">:</span> <span class="token string">&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      hash<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>HotModuleReplacementPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  devtool<span class="token punctuation">:</span> <span class="token string">&quot;eval-cheap-module-source-map&quot;</span><span class="token punctuation">,</span>
+  devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    hot<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    hotOnly<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//只要热更新，不要living loading（自动刷新浏览器）；</span>
+    overlay<span class="token punctuation">:</span> <span class="token punctuation">{</span> errors<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// inline: false,</span>
+    <span class="token comment">// historyApiFallback: true,</span>
+    historyApiFallback<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      rewrites<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token regex">/^\/([ -~]+)/</span><span class="token punctuation">,</span>
+          <span class="token function-variable function">to</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">&quot;./&quot;</span> <span class="token operator">+</span> context<span class="token punctuation">.</span>match<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">&quot;.html&quot;</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;/j&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">:</span> <span class="token string">&quot;https://study.163.com/&quot;</span><span class="token punctuation">,</span>
+        changeOrigin<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token string">&quot;^/j/1&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;/j/navi/getShopCartCount.json&quot;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="edit-link"><span id="/articles/Webpack/imgloader.html" data-flag-title="Your Article Title" class="leancloud_visitors"><em class="post-meta-item-text">阅读量：</em> <i class="leancloud-visitors-count"></i></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/19/2021, 9:29:57 PM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.b7512ca0.js" defer></script><script src="/assets/js/10.295130ab.js" defer></script><script src="/assets/js/2.d228b45c.js" defer></script><script src="/assets/js/32.89e539d8.js" defer></script>
+  </body>
+</html>

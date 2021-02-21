@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>事件流与事件委托 | 人生很短，珍惜当下。</title>
+    <meta name="description" content="my_blog">
+    <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="icon" href="/favicon.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.3613f7cf.css" as="style"><link rel="preload" href="/assets/js/app.b7512ca0.js" as="script"><link rel="preload" href="/assets/js/10.295130ab.js" as="script"><link rel="preload" href="/assets/js/2.d228b45c.js" as="script"><link rel="preload" href="/assets/js/24.e953b523.js" as="script"><link rel="preload" href="/assets/js/16.34160e70.js" as="script"><link rel="preload" href="/assets/js/17.408e2ca1.js" as="script"><link rel="preload" href="/assets/js/18.1bd68f7b.js" as="script"><link rel="prefetch" href="/assets/js/1.18be4495.js"><link rel="prefetch" href="/assets/js/11.d235d6d8.js"><link rel="prefetch" href="/assets/js/12.bc395f97.js"><link rel="prefetch" href="/assets/js/13.2b8d3c22.js"><link rel="prefetch" href="/assets/js/14.5f89eac6.js"><link rel="prefetch" href="/assets/js/15.110ca7aa.js"><link rel="prefetch" href="/assets/js/19.e8968da6.js"><link rel="prefetch" href="/assets/js/20.d6503bc1.js"><link rel="prefetch" href="/assets/js/21.19a3fae0.js"><link rel="prefetch" href="/assets/js/22.28d04f79.js"><link rel="prefetch" href="/assets/js/23.b0cddec0.js"><link rel="prefetch" href="/assets/js/25.aa562cf6.js"><link rel="prefetch" href="/assets/js/26.51ed2e97.js"><link rel="prefetch" href="/assets/js/27.fdfa66f8.js"><link rel="prefetch" href="/assets/js/28.2dcbb1a6.js"><link rel="prefetch" href="/assets/js/29.57437847.js"><link rel="prefetch" href="/assets/js/30.ac8825b3.js"><link rel="prefetch" href="/assets/js/31.a2d50cbe.js"><link rel="prefetch" href="/assets/js/32.89e539d8.js"><link rel="prefetch" href="/assets/js/33.563931e4.js"><link rel="prefetch" href="/assets/js/34.fe2a53e1.js"><link rel="prefetch" href="/assets/js/35.ee76fda9.js"><link rel="prefetch" href="/assets/js/4.237f160b.js"><link rel="prefetch" href="/assets/js/5.124b3bf4.js"><link rel="prefetch" href="/assets/js/6.31fffac0.js"><link rel="prefetch" href="/assets/js/7.c849301e.js"><link rel="prefetch" href="/assets/js/8.41a1c678.js"><link rel="prefetch" href="/assets/js/9.ba5e723d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3613f7cf.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="fontType">Constable's Notebook</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link" data-v-40ceb9b0><span class="iconfont icon-zhuye" data-v-40ceb9b0></span>
+  主页
+</a></div><div class="nav-item"><a href="/tags/" class="nav-link" data-v-40ceb9b0><span class="iconfont icon-biaoqian" data-v-40ceb9b0></span>
+  标签
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link" data-v-40ceb9b0><span class="iconfont icon-zhuye" data-v-40ceb9b0></span>
+  主页
+</a></div><div class="nav-item"><a href="/tags/" class="nav-link" data-v-40ceb9b0><span class="iconfont icon-biaoqian" data-v-40ceb9b0></span>
+  标签
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>事件流与事件委托</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/articles/Javascript/eventFlow&amp;evevtProxy.html#什么是事件流" class="sidebar-link">什么是事件流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/articles/Javascript/eventFlow&amp;evevtProxy.html#事件流的三个阶段" class="sidebar-link">事件流的三个阶段</a></li></ul></li><li><a href="/articles/Javascript/eventFlow&amp;evevtProxy.html#什么是事件委托" class="sidebar-link">什么是事件委托</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/articles/Javascript/eventFlow&amp;evevtProxy.html#事件委托的优点" class="sidebar-link">事件委托的优点</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="事件流与事件委托"><a href="#事件流与事件委托" class="header-anchor">#</a> 事件流与事件委托</h1> <h2 id="什么是事件流"><a href="#什么是事件流" class="header-anchor">#</a> 什么是事件流</h2> <p>  所谓事件流是描述指页面上 DOM 事件执行的先后顺序。因为页面是由多个元素嵌套组成，所以在一个子元素上触发了一个事件，包裹了他的父元素上也会触发这个事件。用一个简单的例子就可以印证：</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>parent<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>handleClick('parent')<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>child<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>handleClick('child')<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>grandchild<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>handleClick('grandchild')<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token parameter">sth</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">alert</span><span class="token punctuation">(</span>sth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>stylus<span class="token punctuation">&quot;</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+.parent
+  width 200px
+  height 200px
+  background blue
+
+  .child
+    width 100px
+    height 100px
+    background red
+
+    .grandchild
+      width 50px
+      height 50px
+      background yellow
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div data-v-8c8c2cc6><div class="parent" data-v-8c8c2cc6><div class="child" data-v-8c8c2cc6><div class="grandchild" data-v-8c8c2cc6></div></div></div></div> <p>  点击最内层黄色的孙子元素，可以发现浏览器依次弹出提示&quot;grandchild&quot;、&quot;child&quot;、&quot;parent&quot;。事件被触发了三次。这里事件的触发顺序是在事件流的冒泡阶段，何为冒泡阶段？就需要引出接下来要讲的内容——事件流的三个阶段。</p> <h3 id="事件流的三个阶段"><a href="#事件流的三个阶段" class="header-anchor">#</a> 事件流的三个阶段</h3> <p>  DOM 事件流的顺序分为三个阶段——捕获阶段 → 目标阶段 → 冒泡阶段。</p> <p>  1.捕获阶段</p> <p>  捕获阶段是由事件流的顺序是由外而内，最外层元素 document 先触发，目标元素最后触发。捕获流程，部分老版本的 IE 浏览器不支持，需要 ie9+才可以支持。</p> <p>  2.目标阶段</p> <p>  在这个阶段，事件的触发顺序只取决于跟写代码的先后顺序。</p> <p>  3.冒泡阶段</p> <p>  冒泡阶段是由事件流的顺序是由内而外，目标元素先触发，最外 document 元素最后触发。</p> <p>  通过 addEventListener 这个方法来控制在捕获阶段还是冒泡阶段来触发事件，该方法最后一个参数需要传一个布尔值，默认是 false。是在冒泡阶段触发事件，如果传入 true 则是冒泡阶段触发事件。下面就用这个 api 来深入了解事件流。</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>parent<span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>parent<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>parent<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>child<span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>child<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>grandchild<span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>grandchild<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> parent <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>parent<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> child <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>child<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> grandchild <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>grandchild<span class="token punctuation">;</span>
+    <span class="token comment">//冒泡阶段</span>
+    parent<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;parent&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    child<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;child&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    grandchild<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;grandchild&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//捕获阶段</span>
+    grandchild<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+      <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;grandchildT&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token boolean">true</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    child<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+      <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;childT&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token boolean">true</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    parent<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+      <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;parentT&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token boolean">true</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>stylus<span class="token punctuation">&quot;</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+.parent
+  margin 50px auto
+  width 200px
+  height 200px
+  background blue
+
+.child
+width 100px
+height 100px
+background red
+
+    .grandchild
+      width 50px
+      height 50px
+      background yellow
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div data-v-6468c7fb><div id="parent" class="parent" data-v-6468c7fb><div class="child" data-v-6468c7fb><div class="grandchild" data-v-6468c7fb></div></div></div></div> <p>  点击最内部黄色 div 查看 console 的打印结果依次为 parentT、childT、grandchild、grandchildT、child、parent。为排除代码书写先后顺序的影响，我故意按照事件流的相反的顺序书写。观察 console 的打印结果，可以发现事件是按照事件流的顺序触发的，但是值得注意的是 grandchild 在 grandchildT 之前触发，这是因为此时在目标阶段，目标阶段的触发顺序是按照代码的书写顺序来的。</p> <h2 id="什么是事件委托"><a href="#什么是事件委托" class="header-anchor">#</a> 什么是事件委托</h2> <p>  事件委托就是利用事件流的冒泡原理，在父元素或者祖先元素上绑定事件的监听，触发其子元素的事件的效果。依然是一个例子：</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>parent<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> parent <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>parent<span class="token punctuation">;</span>
+    parent<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>innerText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>stylus<span class="token punctuation">&quot;</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+ul &gt; li
+  width 100px
+  height 30px
+  border 1px #000 solid
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div data-v-5fd7ba61><ul data-v-5fd7ba61><li data-v-5fd7ba61>1</li> <li data-v-5fd7ba61>2</li> <li data-v-5fd7ba61>3</li></ul></div> <p>  从打印结果可以看出，事件监听绑定在父元素上，通过事件委托点击其子元素，可以打印出该子元素内的内容。</p> <h3 id="事件委托的优点"><a href="#事件委托的优点" class="header-anchor">#</a> 事件委托的优点</h3> <p>  1.通过事件委托可以提高性能。假如父元素下有多个子元素，不通过事件委托，要在每一个子元素上加一个点击事件，但是事件委托，只需要在父元素上添加一次事件。</p> <p>  2.事件委托还可以对动态添加的未来元素同样有效。</p></div> <footer class="page-edit"><!----> <div class="edit-link"><span id="/articles/Javascript/eventFlow&amp;evevtProxy.html" data-flag-title="Your Article Title" class="leancloud_visitors"><em class="post-meta-item-text">阅读量：</em> <i class="leancloud-visitors-count"></i></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/24/2021, 9:24:39 PM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.b7512ca0.js" defer></script><script src="/assets/js/10.295130ab.js" defer></script><script src="/assets/js/2.d228b45c.js" defer></script><script src="/assets/js/24.e953b523.js" defer></script><script src="/assets/js/16.34160e70.js" defer></script><script src="/assets/js/17.408e2ca1.js" defer></script><script src="/assets/js/18.1bd68f7b.js" defer></script>
+  </body>
+</html>
