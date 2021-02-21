@@ -113,3 +113,33 @@ module.exports = {
   "exclude": ["./node_modules"]
 }
 ```
+
+## package.json
+
+```javascript
+{
+  "name": "js-loader",
+  "version": "1.0.0",
+  "description": "learn webpack jsloader",
+  "main": "app.js",
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.17",
+    "@babel/runtime": "^7.12.18",
+    "babel-loader": "^8.2.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
+    "babel-polyfill": "^6.26.0",
+    "ts-loader": "^8.0.14",
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "test": "test",
+    "build": "webpack"
+  },
+  "author": "Constable",
+  "license": "ISC"
+}
+```
+
+- 注意带不带@
