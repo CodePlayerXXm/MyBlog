@@ -36,6 +36,7 @@ export default {
         color9: "Git",
         color10: "TypeScript",
         color11: "Webpack",
+        color12: "《你不知道的Javascript》笔记",
       },
     };
   },
@@ -111,4 +112,7 @@ export default {
 
   &.color11
     background-color rgba(141,214,249,1)
+
+  &.color12
+    background-color #EDD93B
 </style>
