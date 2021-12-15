@@ -36,7 +36,7 @@ export default {
         color9: "Git",
         color10: "TypeScript",
         color11: "Webpack",
-        color12: "《你不知道的Javascript》笔记",
+        color12: "《你不知道Javascript》笔记",
       },
     };
   },
