@@ -1,10 +1,11 @@
 const { description } = require("../../package");
 
 module.exports = {
+  base:"/MyBlog/",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: "人生很短，珍惜当下。",
+  title: "Ethan",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
