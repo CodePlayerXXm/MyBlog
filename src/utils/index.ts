@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
+import { withBase } from 'vitepress'
 import { ThemeConfig } from "../types";
 //@ts-ignore
 import { data as contents, Page } from "./content.data";
-
 export const inBrowser = typeof document !== "undefined";
 export const HASH_RE = /#.*$/;
 export const EXT_RE = /(index)?\.(md|html)$/;
@@ -36,7 +36,9 @@ const { pageMap, pageGroupByLayout } = init();
  * @returns Page
  */
 const getPage = (path: string) => {
-  return pageMap.get(path);
+  console.log("🚀 ~ file: index.ts:39 ~ getPage ~ path:", path)
+  console.log("🚀 ~ file: index.ts:41 ~ getPage ~ pageMap:", pageMap)
+  return pageMap.get(path.substring(7));
 };
 
 const sort = (pages: Page[], theme: ThemeConfig) => {
@@ -69,9 +71,9 @@ const formatDate = (time: string | number, pattern?: string) => {
 
 const tagsUrl = (layout: string, tag: string) => {
   if(layout ==="qamain"){
-    return `/qa.html?tag=${tag}`
+    return  withBase(`/qa.html?tag=${tag}`)
   }
-  return `/tags?layout=${layout}&tag=${tag}`;
+  return  withBase(`/tags?layout=${layout}&tag=${tag}`);
 };
 
 export function isActive(

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { withBase } from "vitepress";
 import { Page } from "../types";
 import PageListItem from "./PageListItem";
 
@@ -26,7 +27,7 @@ const position = (page: Page) => {
         :showCover="showCover(page)"
         :page="page"
       />
-      <a class="entry-link" :aria-label="page.title" :href="page.url"></a>
+      <a class="entry-link" :aria-label="page.title" :href="withBase(page.url)"></a>
     </div>
   </div>
 </template>
