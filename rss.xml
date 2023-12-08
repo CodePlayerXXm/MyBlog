@@ -4,7 +4,7 @@
         <title>Ethan</title>
         <link>https://vitepress-blog-theme.vercel.app</link>
         <description>Ethan's Note.</description>
-        <lastBuildDate>Fri, 08 Dec 2023 07:29:21 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 08 Dec 2023 08:03:04 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -111,7 +111,7 @@
 <ol>
 <li><code>group</code> 用来分组, 会在侧边栏显示, 默认是 <code>Others</code>. 比如说我有一系列关于 <code>Rust</code> 的笔记, 你就可以设置为 <code>group = Rust 语言笔记</code></li>
 </ol>
-<p>示例: <a href="/MyBlog/content/docs/os/os-1.html">os1</a></p>
+<p>示例: <a href="/content/docs/os/os-1.html">os1</a></p>
 <hr>
 <p>所有文章都必须存放在 <code>content</code> 目录下, 且 <code>layout</code> 是必须的, 但是同个 <code>layout</code> 的文章严格来讲不需要放在同个目录下.</p>
 ]]></content:encoded>
