@@ -6,8 +6,9 @@ const links: { url: string; lastmod: PageData["lastUpdated"] }[] = [];
 
 // https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme<ThemeConfig>({
+  base:"/MyBlog/",
   title: "Ethan",
-  description: "What your say ?",
+  description: "Ethan's Note.",
   lang: "zh-CN",
   themeConfig: {
     sortBy: "date",
