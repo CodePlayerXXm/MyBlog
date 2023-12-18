@@ -36,8 +36,6 @@ const { pageMap, pageGroupByLayout } = init();
  * @returns Page
  */
 const getPage = (path: string) => {
-  console.log("🚀 ~ file: index.ts:39 ~ getPage ~ path:", path)
-  console.log("🚀 ~ file: index.ts:41 ~ getPage ~ pageMap:", pageMap)
   return pageMap.get(path.substring(7));
 };
 
