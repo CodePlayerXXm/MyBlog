@@ -2,7 +2,7 @@
 title: TypeScript 的Class
 group: TypeScript
 layout: doc
-date: 2023-12-12T07:40:42.261Z
+date: 2023-12-18T09:57:53.303Z
 tags: [TypeScript]
 sidebar: true
 summary: TypeScript 的Class
