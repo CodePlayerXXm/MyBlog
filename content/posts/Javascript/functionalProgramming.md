@@ -1,7 +1,7 @@
 ---
 title: 函数式编程
 group: JavaScript
-layout: doc
+layout: post
 date: 2021-1-02T13:54:36+08:00
 tags: [JavaScript]
 sidebar: true

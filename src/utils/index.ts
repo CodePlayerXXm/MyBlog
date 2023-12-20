@@ -54,7 +54,11 @@ const sort = (pages: Page[], theme: ThemeConfig) => {
 };
 
 const getPages = (layout: string, theme: ThemeConfig) => {
-  return sort(pageGroupByLayout.get(layout) || [], theme);
+  const allPages = []
+  for (const [_, value] of pageMap) {
+    allPages.push(value)
+  }
+  return sort(allPages ?? [], theme);
 };
 
 const defaultDataFormat = "YYYY-MM-DD HH:mm:ss";
@@ -68,10 +72,10 @@ const formatDate = (time: string | number, pattern?: string) => {
 };
 
 const tagsUrl = (layout: string, tag: string) => {
-  if(layout ==="qamain"){
-    return  withBase(`/qa.html?tag=${tag}`)
+  if (layout === "qamain") {
+    return withBase(`/qa.html?tag=${tag}`)
   }
-  return  withBase(`/tags?layout=${layout}&tag=${tag}`);
+  return withBase(`/tags?layout=${layout}&tag=${tag}`);
 };
 
 export function isActive(

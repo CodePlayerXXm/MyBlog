@@ -6,7 +6,7 @@ import PageList from "./../components/PageList.vue";
 
 const { theme } = useData();
 
-const posts = computed(() => getPages("post", theme.value));
+const posts = computed(() => getPages("doc", theme.value));
 </script>
 
 <template>

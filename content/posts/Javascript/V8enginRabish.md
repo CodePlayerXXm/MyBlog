@@ -1,7 +1,7 @@
 ---
 title: V8引擎垃圾回收机制
 group: JavaScript
-layout: doc
+layout: post
 date: 2021-1-02T13:54:36+08:00
 tags: [JavaScript]
 sidebar: true

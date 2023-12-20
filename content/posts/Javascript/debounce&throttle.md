@@ -1,7 +1,7 @@
 ---
 title: 防抖与节流
 group: JavaScript
-layout: doc
+layout: post
 date: 2021-1-02T13:54:36+08:00
 tags: [JavaScript,Vue]
 sidebar: true

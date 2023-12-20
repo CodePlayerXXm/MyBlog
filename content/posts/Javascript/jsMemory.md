@@ -1,7 +1,7 @@
 ---
 title: JavaScript内存管理机制与其一些运行规则
 group: JavaScript
-layout: doc
+layout: post
 date: 2021-1-02T13:54:36+08:00
 tags: [JavaScript]
 sidebar: true
