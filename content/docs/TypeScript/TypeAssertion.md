@@ -241,7 +241,7 @@ class Point {
 
 * 新写法 函数返回值类型写成asserts value is T
 * 断言函数的asserts语句等同于void类型，所以如果返回除了undefined和null以外的值，都会报错。
-* 如果要断言参数非空，可以使用工具类型NonNullable<T>
+* 如果要断言参数非空，可以使用工具类型NonNullable&lt;T&gt;。
 * 断言函数与类型保护函数（type guard）是两种不同的函数。它们的区别是，断言函数不返回值，而类型保护函数总是返回一个布尔值。
 * 如果要断言某个参数保证为真（即不等于false、undefined和null），TypeScript 提供了断言函数的一种简写形式。
 
