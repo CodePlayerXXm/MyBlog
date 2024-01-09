@@ -2,7 +2,7 @@
 title: TypeScript 的装饰器
 group: TypeScript
 layout: doc
-date: 2024-01-02T02:42:48.422Z
+date: 2024-01-09T08:02:48.498Z
 tags: [TypeScript]
 sidebar: true
 summary: TypeScript 的装饰器
@@ -232,4 +232,463 @@ type ClassMethodDecorator = (
 * access：对象，包含了方法的存取器，但是只有get()方法用来取值，没有set()方法进行赋值。
 * 其他属性同类装饰器
 
+一些用法：
 
+```TypeScript
+function trace(decoratedMethod) {
+  // ...
+}
+
+class C {
+  @trace
+  toString() {
+    return 'C';
+  }
+}
+
+// `@trace` 等同于
+// C.prototype.toString = trace(C.prototype.toString);
+
+```
+* 如果方法装饰器返回一个新的函数，就会替代所装饰的原始函数。
+
+```TypeScript
+
+function replaceMethod() {
+  return function () {
+    return `How are you, ${this.name}?`;
+  }
+}
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  @replaceMethod
+  hello() {
+    return `Hi ${this.name}!`;
+  }
+}
+
+const robin = new Person('Robin');
+
+robin.hello() // 'How are you, Robin?'
+
+```
+
+* 在装饰的函数执行时，做一些其他的事情
+
+```TypeScript
+class Person {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  @log
+  greet() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+}
+
+function log(originalMethod:any, context:ClassMethodDecoratorContext) {
+  const methodName = String(context.name);
+
+  function replacementMethod(this: any, ...args: any[]) {
+    console.log(`LOG: Entering method '${methodName}'.`)
+    const result = originalMethod.call(this, ...args);
+    console.log(`LOG: Exiting method '${methodName}'.`)
+    return result;
+  }
+
+  return replacementMethod;
+}
+
+const person = new Person('张三');
+person.greet()
+// "LOG: Entering method 'greet'."
+// "Hello, my name is 张三."
+// "LOG: Exiting method 'greet'."
+
+```
+* 利用方法装饰器，可以将类的方法变成延迟执行。
+
+```TypeScript
+function delay(milliseconds: number = 0) {
+  return function (value, context) {
+    if (context.kind === "method") {
+      return function (...args: any[]) {
+        setTimeout(() => {
+          value.apply(this, args);
+        }, milliseconds);
+      };
+    }
+  };
+}
+
+class Logger {
+  @delay(1000)
+  log(msg: string) {
+    console.log(`${msg}`);
+  }
+}
+
+let logger = new Logger();
+logger.log("Hello World");
+
+```
+* 在构造函数里给方法绑定this
+
+```TypeScript
+
+class Person {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+
+    // greet() 绑定 this 如果不绑定 this，下面的代码会报错
+    this.greet = this.greet.bind(this);
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+}
+
+const g = new Person('张三').greet;
+g() // "Hello, my name is 张三." 这行会报错空指针
+
+
+// 给greet使用这个装饰器，可以不在构造函数里绑定this
+function bound(
+  originalMethod:any, context:ClassMethodDecoratorContext
+) {
+  const methodName = context.name;
+  if (context.private) {
+    throw new Error(`不能绑定私有方法 ${methodName as string}`);
+  }
+  context.addInitializer(function () {
+    this[methodName] = this[methodName].bind(this);
+  });
+}
+
+```
+
+* 通过addInitializer给类添加一个Set收集想要收集的属性或者方法
+
+```TypeScript
+
+function collect(
+  value,
+  {name, addInitializer}
+) {
+  addInitializer(function () {
+    if (!this.collectedMethodKeys) {
+      this.collectedMethodKeys = new Set();
+    }
+    this.collectedMethodKeys.add(name);
+  });
+}
+
+class C {
+  @collect
+  toString() {}
+
+  @collect
+  [Symbol.iterator]() {}
+}
+
+const inst = new C();
+inst.collectedMethodKeys // new Set(['toString', Symbol.iterator])
+
+```
+
+## 属性装饰器
+
+```TypeScript
+
+type ClassFieldDecorator = (
+  value: undefined,
+  context: {
+    kind: 'field';
+    name: string | symbol;
+    static: boolean;
+    private: boolean;
+    access: { get: () => unknown, set: (value: unknown) => void };
+    addInitializer(initializer: () => void): void;
+  }
+) => (initialValue: unknown) => unknown | void;
+
+```
+
+* 装饰器的第一个参数value的类型是undefined，装饰器不能从value获取所装饰属性的值。第二个参数context对象的kind属性的值为字符串field，而不是“property”或“attribute”
+* 属性装饰器要么不返回值，要么返回一个函数，该函数会自动执行，用来对所装饰属性进行初始化。该函数的参数是所装饰属性的初始值，该函数的返回值是该属性的最终值。
+* 属性装饰器的返回值函数，可以用来更改属性的初始值。
+* 属性装饰器的上下文对象context的access属性，提供所装饰属性的存取器，请看下面的例子。
+
+```TypeScript
+
+function logged(value, context) {
+  const { kind, name } = context;
+  if (kind === 'field') {
+    return function (initialValue) {
+      console.log(`initializing ${name} with value ${initialValue}`);
+      return initialValue;
+    };
+  }
+}
+
+class Color {
+  @logged name = 'green';
+}
+
+const color = new Color();
+// "initializing name with value green"
+
+
+
+function twice() {
+  return initialValue => initialValue * 2;
+}
+
+class C {
+  @twice
+  field = 3;
+}
+
+const inst = new C();
+inst.field // 6
+
+
+
+let acc;
+
+function exposeAccess(
+  value, {access}
+) {
+  acc = access;
+}
+
+class Color {
+  @exposeAccess
+  name = 'green'
+}
+
+const green = new Color();
+green.name // 'green'
+
+acc.get(green) // 'green'
+
+acc.set(green, 'red');
+green.name // 'red'
+```
+## getter 装饰器，setter 装饰器
+
+```TypeScript
+
+type ClassGetterDecorator = (
+  value: Function,
+  context: {
+    kind: 'getter';
+    name: string | symbol;
+    static: boolean;
+    private: boolean;
+    access: { get: () => unknown };
+    addInitializer(initializer: () => void): void;
+  }
+) => Function | void;
+
+type ClassSetterDecorator = (
+  value: Function,
+  context: {
+    kind: 'setter';
+    name: string | symbol;
+    static: boolean;
+    private: boolean;
+    access: { set: (value: unknown) => void };
+    addInitializer(initializer: () => void): void;
+  }
+) => Function | void;
+
+```
+
+* 这两个装饰器要么不返回值，要么返回一个函数，取代原来的取值器或存值器。
+
+
+```TypeScript
+
+class C {
+  @lazy
+  get value() {
+    console.log('正在计算……');
+    return '开销大的计算结果';
+  }
+}
+
+function lazy(
+  value:any,
+  {kind, name}:any
+) {
+  if (kind === 'getter') {
+    return function (this:any) {
+      const result = value.call(this);
+      Object.defineProperty(
+        this, name,
+        {
+          value: result,
+          writable: false,
+        }
+      );
+      return result;
+    };
+  }
+  return;
+}
+
+const inst = new C();
+inst.value
+// 正在计算……
+// '开销大的计算结果'
+inst.value
+// '开销大的计算结果'
+
+```
+
+## accessor 装饰器
+
+* accessor修饰符等同于为公开属性x自动生成取值器和存值器，它们作用于私有属性x。
+
+```TypeScript
+
+class C {
+  accessor x = 1;
+}
+// 等同于
+class C {
+  #x = 1;
+
+  get x() {
+    return this.#x;
+  }
+
+  set x(val) {
+    this.#x = val;
+  }
+}
+
+
+
+class C {
+  static accessor x = 1;
+  accessor #y = 2;
+}
+
+```
+accessor 装饰器的类型
+
+```TypeScript
+
+type ClassAutoAccessorDecorator = (
+  value: {
+    get: () => unknown;
+    set: (value: unknown) => void;
+  },
+  context: {
+    kind: "accessor";
+    name: string | symbol;
+    access: { get(): unknown, set(value: unknown): void };
+    static: boolean;
+    private: boolean;
+    addInitializer(initializer: () => void): void;
+  }
+) => {
+  get?: () => unknown;
+  set?: (value: unknown) => void;
+  init?: (initialValue: unknown) => unknown;
+} | void;
+
+
+```
+
+## 装饰器的执行顺序
+
+
+```TypeScript
+
+function d(str:string) {
+  console.log(`评估 @d(): ${str}`);
+  return (
+    value:any, context:any
+  ) => console.log(`应用 @d(): ${str}`);
+}
+
+function log(str:string) {
+  console.log(str);
+  return str;
+}
+
+@d('类装饰器')
+class T {
+  @d('静态属性装饰器')
+  static staticField = log('静态属性值');
+
+  @d('原型方法')
+  [log('计算方法名')]() {}
+
+  @d('实例属性')
+  instanceField = log('实例属性值');
+
+  @d('静态方法装饰器')
+  static fn(){}
+}
+
+```
+
+执行结果：
+
+```TypeScript
+
+评估 @d(): 类装饰器
+评估 @d(): 静态属性装饰器
+评估 @d(): 原型方法
+计算方法名
+评估 @d(): 实例属性
+评估 @d(): 静态方法装饰器
+应用 @d(): 静态方法装饰器
+应用 @d(): 原型方法
+应用 @d(): 静态属性装饰器
+应用 @d(): 实例属性
+应用 @d(): 类装饰器
+静态属性值
+
+```
+
+* 装饰器评估：这一步计算装饰器的值，首先是类装饰器，然后是类内部的装饰器，按照它们出现的顺序。
+
+如果属性名或方法名是计算值（本例是“计算方法名”），则它们在对应的装饰器评估之后，也会进行自身的评估。
+
+* 装饰器应用：实际执行装饰器函数，将它们与对应的方法和属性进行结合。
+
+静态方法装饰器首先应用，然后是原型方法的装饰器和静态属性装饰器，接下来是实例属性装饰器，最后是类装饰器。
+
+* “实例属性值”在类初始化的阶段并不执行，直到类实例化时才会执行。
+
+如果一个方法或属性有多个装饰器，则内层的装饰器先执行，外层的装饰器后执行
+
+```TypeScript
+
+class Person {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  @bound
+  @log
+  greet() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+}
+
+```
