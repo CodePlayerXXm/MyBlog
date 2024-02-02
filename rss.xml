@@ -4,7 +4,7 @@
         <title>Ethan</title>
         <link>https://vitepress-blog-theme.vercel.app</link>
         <description>Ethan's Note.</description>
-        <lastBuildDate>Fri, 02 Feb 2024 09:08:40 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 02 Feb 2024 09:50:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -14,6 +14,140 @@
             <link>https://vitepress-blog-theme.vercel.app</link>
         </image>
         <copyright>Copyright (c) 2023-present, fzdwx&lt;likelovec@gmail.com&gt; and blog contributors</copyright>
+        <item>
+            <title><![CDATA[TypeScript 的注释指令]]></title>
+            <link>https://vitepress-blog-theme.vercel.app/content/docs/TypeScript/Annotation.html</link>
+            <guid>https://vitepress-blog-theme.vercel.app/content/docs/TypeScript/Annotation.html</guid>
+            <pubDate>Fri, 02 Feb 2024 09:49:23 GMT</pubDate>
+            <content:encoded><![CDATA[<h2 id="ts-nocheck" tabindex="-1">// @ts-nocheck <a class="header-anchor" href="#ts-nocheck" aria-label="Permalink to &quot;// @ts-nocheck&quot;">&ZeroWidthSpace;</a></h2>
+<p>不对这个脚本进行类型检查</p>
+<h2 id="ts-check" tabindex="-1">// @ts-check <a class="header-anchor" href="#ts-check" aria-label="Permalink to &quot;// @ts-check&quot;">&ZeroWidthSpace;</a></h2>
+<p>强制检查这个脚本，不论是否启用了checkJs编译选项。</p>
+<h2 id="ts-ignore" tabindex="-1">// @ts-ignore <a class="header-anchor" href="#ts-ignore" aria-label="Permalink to &quot;// @ts-ignore&quot;">&ZeroWidthSpace;</a></h2>
+<p>不对下一行代码进行类型检查</p>
+<h2 id="ts-expect-error" tabindex="-1">// @ts-expect-error <a class="header-anchor" href="#ts-expect-error" aria-label="Permalink to &quot;// @ts-expect-error&quot;">&ZeroWidthSpace;</a></h2>
+<p>// @ts-expect-error主要用在测试用例，当下一行有类型错误时，它会压制 TypeScript 的报错信息（即不显示报错信息），把错误留给代码自己处理。</p>
+<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">doStuff</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">abc</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD; font-style: italic">xyz</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #82AAFF">assert</span><span style="color: #F07178">(</span><span style="color: #89DDFF">typeof</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">abc</span><span style="color: #F07178"> </span><span style="color: #89DDFF">===</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">string</span><span style="color: #89DDFF">&quot;</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #82AAFF">assert</span><span style="color: #F07178">(</span><span style="color: #89DDFF">typeof</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">xyz</span><span style="color: #F07178"> </span><span style="color: #89DDFF">===</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">string</span><span style="color: #89DDFF">&quot;</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// do some stuff</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #82AAFF">expect</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// @ts-expect-error</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #82AAFF">doStuff</span><span style="color: #F07178">(</span><span style="color: #F78C6C">123</span><span style="color: #89DDFF">,</span><span style="color: #F07178"> </span><span style="color: #F78C6C">456</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">}</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">toThrow</span><span style="color: #A6ACCD">()</span><span style="color: #89DDFF">;</span></span></code></pre>
+</div><p>如果下一行没有类型错误，// @ts-expect-error则会显示一行提示。</p>
+<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// @ts-expect-error</span></span>
+<span class="line"><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #A6ACCD">(</span><span style="color: #F78C6C">1</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">+</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">1</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">// 输出 Unused &#39;@ts-expect-error&#39; directive.</span></span></code></pre>
+</div><h2 id="jsdoc" tabindex="-1">JSDoc <a class="header-anchor" href="#jsdoc" aria-label="Permalink to &quot;JSDoc&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li>JSDoc 注释必须以/**开始，其中星号（*）的数量必须为两个。若使用其他形式的多行注释，则 JSDoc 会忽略该条注释。</li>
+<li>JSDoc 注释必须与它描述的代码处于相邻的位置，并且注释在上，代码在下。</li>
+</ul>
+<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">param</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">string</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #A6ACCD; font-style: italic">somebody</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">sayHello</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">somebody</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #F07178">(</span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">Hello </span><span style="color: #89DDFF">&#39;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">+</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">somebody</span><span style="color: #F07178">)</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><h3 id="typedef" tabindex="-1">@typedef <a class="header-anchor" href="#typedef" aria-label="Permalink to &quot;@typedef&quot;">&ZeroWidthSpace;</a></h3>
+<p>@typedef命令创建自定义类型，等同于 TypeScript 里面的类型别名。</p>
+<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">typedef</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">(number | string)</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #FFCB6B; font-style: italic">NumberLike</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C792EA">type</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">NumberLike</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">string</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">|</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">;</span></span></code></pre>
+</div><h3 id="type" tabindex="-1">@type <a class="header-anchor" href="#type" aria-label="Permalink to &quot;@type&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">type</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">string</span><span style="color: #89DDFF; font-style: italic">}</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> a</span><span style="color: #89DDFF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">// 在@type命令中可以使用由@typedef命令创建的类型。</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">typedef</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">(number | string)</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #FFCB6B; font-style: italic">NumberLike</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">type</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">NumberLike</span><span style="color: #89DDFF; font-style: italic">}</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> a </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #89DDFF">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">// 在@type命令中允许使用 TypeScript 类型及其语法。</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/**</span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">type</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">true | false</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> a</span><span style="color: #89DDFF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/** </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">type</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">number[]</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> b</span><span style="color: #89DDFF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/** </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">type</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">Array&lt;number&gt;</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> c</span><span style="color: #89DDFF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/** </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">type</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">{ readonly x: number, y?: string }</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> d</span><span style="color: #89DDFF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/** </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">type</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">(s: string, b: boolean) =&gt; number</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> e</span><span style="color: #89DDFF">;</span></span></code></pre>
+</div><h3 id="param" tabindex="-1">@param <a class="header-anchor" href="#param" aria-label="Permalink to &quot;@param&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">param</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">string</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic">  </span><span style="color: #A6ACCD; font-style: italic">x</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">foo</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">x</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{}</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">// 可选属性 []</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">param</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">string</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic">  </span><span style="color: #89DDFF; font-style: italic">[</span><span style="color: #A6ACCD; font-style: italic">x</span><span style="color: #89DDFF; font-style: italic">]</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">foo</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">x</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{}</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">// 方括号里面，还可以指定参数默认值。</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">param</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">string</span><span style="color: #89DDFF; font-style: italic">}</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">[</span><span style="color: #A6ACCD; font-style: italic">x</span><span style="color: #89DDFF; font-style: italic">=</span><span style="color: #A6ACCD; font-style: italic">&quot;bar&quot;</span><span style="color: #89DDFF; font-style: italic">]</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">foo</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">x</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{}</span></span></code></pre>
+</div><h3 id="return-returns" tabindex="-1">@return，@returns <a class="header-anchor" href="#return-returns" aria-label="Permalink to &quot;@return，@returns&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">return</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">boolean</span><span style="color: #89DDFF; font-style: italic">}</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">foo</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #FF9CAC">true</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">returns</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">number</span><span style="color: #89DDFF; font-style: italic">}</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">bar</span><span style="color: #89DDFF">()</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #F78C6C">0</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><h3 id="extends-和类型修饰符" tabindex="-1">@extends 和类型修饰符 <a class="header-anchor" href="#extends-和类型修饰符" aria-label="Permalink to &quot;@extends 和类型修饰符&quot;">&ZeroWidthSpace;</a></h3>
+<p>定义继承的基类</p>
+<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">extends</span><span style="color: #676E95; font-style: italic"> </span><span style="color: #89DDFF; font-style: italic">{</span><span style="color: #FFCB6B; font-style: italic">Base</span><span style="color: #89DDFF; font-style: italic">}</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic"> */</span></span>
+<span class="line"><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">Derived</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">extends</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">Base</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><p>@public、@protected、@private分别指定类的公开成员、保护成员和私有成员。</p>
+<p>@readonly指定只读成员。</p>
+<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">Base</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">   * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">public</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">   * </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">readonly</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">   */</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">x</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #89DDFF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #676E95; font-style: italic">/**</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">   *  </span><span style="color: #89DDFF; font-style: italic">@</span><span style="color: #C792EA; font-style: italic">protected</span></span>
+<span class="line"><span style="color: #676E95; font-style: italic">   */</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">y</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[TypeScript 类型工具]]></title>
             <link>https://vitepress-blog-theme.vercel.app/content/docs/TypeScript/TypeTools.html</link>
@@ -1293,266 +1427,6 @@
 <li>库文件并不是固定的，会随着 TypeScript 版本的升级而更新</li>
 </ul>
 <div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">/// </span><span style="color: #89DDFF; font-style: italic">&lt;</span><span style="color: #F07178; font-style: italic">reference</span><span style="color: #89DDFF; font-style: italic"> </span><span style="color: #C792EA; font-style: italic">lib</span><span style="color: #89DDFF; font-style: italic">=</span><span style="color: #89DDFF; font-style: italic">&quot;</span><span style="color: #C3E88D; font-style: italic">es2017.string</span><span style="color: #89DDFF; font-style: italic">&quot;</span><span style="color: #89DDFF; font-style: italic"> /&gt;</span></span></code></pre>
-</div>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[TypeScript declear]]></title>
-            <link>https://vitepress-blog-theme.vercel.app/content/docs/TypeScript/Declare.html</link>
-            <guid>https://vitepress-blog-theme.vercel.app/content/docs/TypeScript/Declare.html</guid>
-            <pubDate>Thu, 11 Jan 2024 07:01:31 GMT</pubDate>
-            <content:encoded><![CDATA[<h2 id="简介" tabindex="-1">简介 <a class="header-anchor" href="#简介" aria-label="Permalink to &quot;简介&quot;">&ZeroWidthSpace;</a></h2>
-<p>declare 关键字用来告诉编译器，某个类型是存在的，可以在当前文件中使用。<br/></p>
-<p>declare 关键字可以描述以下类型。</p>
-<ul>
-<li>变量（const、let、var 命令声明）</li>
-<li>type 或者 interface 命令声明的类型</li>
-<li>class</li>
-<li>enum</li>
-<li>函数（function）</li>
-<li>模块（module）</li>
-<li>命名空间（namespace）</li>
-</ul>
-<p>declare 关键字的重要特点是，它只是通知编译器某个类型是存在的，不用给出具体实现。<br />
-declare 只能用来描述已经存在的变量和数据结构，不能用来声明新的变量和数据结构<br/>
-declare 语句都不会出现在编译后的文件里面</p>
-<h2 id="declare-variable" tabindex="-1">declare variable <a class="header-anchor" href="#declare-variable" aria-label="Permalink to &quot;declare variable&quot;">&ZeroWidthSpace;</a></h2>
-<ul>
-<li>declare 关键字没有给出变量的具体类型，那么变量类型就是any</li>
-<li>declare 关键字只用来给出类型描述，是纯的类型代码，不允许设置变量的初始值，即不能涉及值</li>
-</ul>
-<div class="language-Typescript"><button title="Copy Code" class="copy"></button><span class="lang">Typescript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #A6ACCD">x </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">123</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD"> </span><span style="color: #676E95; font-style: italic">// 报错</span></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> x</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">x </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">1</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #676E95; font-style: italic">// any</span></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> x</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">x </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">1</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #676E95; font-style: italic">// 报错</span></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">let</span><span style="color: #A6ACCD"> x</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">number</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">1</span><span style="color: #89DDFF">;</span></span></code></pre>
-</div><h2 id="declare-function" tabindex="-1">declare function <a class="header-anchor" href="#declare-function" aria-label="Permalink to &quot;declare function&quot;">&ZeroWidthSpace;</a></h2>
-<ul>
-<li><s>单独的函数类型声明语句，只能用于declare命令后面</s> （貌似可以了？）</li>
-<li>declare 关键字后面也不能带有函数的具体实现。</li>
-</ul>
-<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">sayHello</span><span style="color: #89DDFF">(</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #A6ACCD; font-style: italic">name</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">string</span></span>
-<span class="line"><span style="color: #89DDFF">):</span><span style="color: #FFCB6B">void</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #82AAFF">sayHello</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">张三</span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #676E95; font-style: italic">// 报错</span></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">function</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">sayHello</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">name</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">)</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">你好，</span><span style="color: #89DDFF">&#39;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">+</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">name</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
-</div><h2 id="declare-class" tabindex="-1">declare class <a class="header-anchor" href="#declare-class" aria-label="Permalink to &quot;declare class&quot;">&ZeroWidthSpace;</a></h2>
-<div class="language-Typescript"><button title="Copy Code" class="copy"></button><span class="lang">Typescript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">class</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">C</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 静态成员</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">public</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">static</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">s0</span><span style="color: #89DDFF">():</span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">private</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">static</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">s1</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 属性</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">public</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">a</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">private</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">b</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 构造函数</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">constructor</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">arg</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 方法</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">m</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">x</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD; font-style: italic">y</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">):</span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 存取器</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">get</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">c</span><span style="color: #89DDFF">():</span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #C792EA">set</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">c</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">value</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 索引签名</span></span>
-<span class="line"><span style="color: #A6ACCD">  [</span><span style="color: #A6ACCD; font-style: italic">index</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">string</span><span style="color: #A6ACCD">]</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">any</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
-</div><p>同样的，declare 后面不能给出 Class 的具体实现或初始值。</p>
-<h2 id="declare-module-declare-namespace" tabindex="-1">declare module，declare namespace <a class="header-anchor" href="#declare-module-declare-namespace" aria-label="Permalink to &quot;declare module，declare namespace&quot;">&ZeroWidthSpace;</a></h2>
-<ul>
-<li>把变量、函数、类组织在一起，可以将 declare 与 module 或 namespace 一起使用。</li>
-<li>declare module 和 declare namespace 里面，加不加 export 关键字都可以。</li>
-<li>可以为外部模块添加属性和方法时，给出新增部分的类型描述。</li>
-<li>可以在一个模块中，对另一个模块的接口进行类型扩展。
-<ul>
-<li>declare module NAME语法里面的模块名NAME，跟 import 和 export 的模块名规则是一样的，且必须跟当前文件加载该模块的语句写法（上例import { A } from './a'）保持一致。</li>
-<li>不能创建新的顶层类型。也就是说，只能对a.ts模块中已经存在的类型进行扩展，不允许增加新的顶层类型，比如新定义一个接口B。</li>
-<li>不能对默认的default接口进行扩展，只能对 export 命令输出的命名接口进行扩充。这是因为在进行类型扩展时，需要依赖输出的接口名。</li>
-</ul>
-</li>
-<li>某些第三方模块，原始作者没有提供接口类型，这时可以在自己的脚本顶部加上下面一行命令。但是，从该模块输入的所有接口都将为any类型。</li>
-<li>declare module 描述的模块名可以使用通配符。</li>
-</ul>
-<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">namespace</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">AnimalLib</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">class</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Animal</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #C792EA">constructor</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">name</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">);</span></span>
-<span class="line"><span style="color: #F07178">    eat</span><span style="color: #89DDFF">():</span><span style="color: #FFCB6B">void</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">    sleep</span><span style="color: #89DDFF">():</span><span style="color: #FFCB6B">void</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">type</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Animals</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">Fish</span><span style="color: #89DDFF">&#39;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">|</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">Dog</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #676E95; font-style: italic">// 或者</span></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">module</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">AnimalLib</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">class</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Animal</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #C792EA">constructor</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">name</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">);</span></span>
-<span class="line"><span style="color: #F07178">    eat</span><span style="color: #89DDFF">():</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">void</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">    sleep</span><span style="color: #89DDFF">():</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">void</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">type</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Animals</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">Fish</span><span style="color: #89DDFF">&#39;</span><span style="color: #F07178"> </span><span style="color: #89DDFF">|</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">Dog</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">namespace</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">Foo</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #F07178"> </span><span style="color: #C792EA">var</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">a</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">boolean</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">module</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">io</span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #F07178"> </span><span style="color: #C792EA">function</span><span style="color: #F07178"> </span><span style="color: #82AAFF">readFile</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">filename</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">):</span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #89DDFF; font-style: italic">import</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">Foo</span><span style="color: #F07178"> </span><span style="color: #89DDFF; font-style: italic">as</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">Bar</span><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF; font-style: italic">from</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">moduleA</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">module</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">moduleA</span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">interface</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Foo</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    custom</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">      prop1</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #676E95; font-style: italic">// a.ts</span></span>
-<span class="line"><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">interface</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">A</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">x</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #676E95; font-style: italic">// b.ts</span></span>
-<span class="line"><span style="color: #89DDFF; font-style: italic">import</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">A</span><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF; font-style: italic">from</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">./a</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">module</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">./a</span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">interface</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">A</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    y</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> a</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">A</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">x</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">y</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">};</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">module</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">模块名</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #676E95; font-style: italic">// 例子</span></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">module</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">hot-new-module</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">module</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">my-plugin-*</span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">interface</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">PluginOptions</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    enabled</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">boolean</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">    priority</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">number</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">function</span><span style="color: #F07178"> </span><span style="color: #82AAFF">initialize</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">options</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">PluginOptions</span><span style="color: #89DDFF">):</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">void</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #F07178"> </span><span style="color: #89DDFF">=</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">initialize</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
-</div><h2 id="declare-global" tabindex="-1">declare global <a class="header-anchor" href="#declare-global" aria-label="Permalink to &quot;declare global&quot;">&ZeroWidthSpace;</a></h2>
-<ul>
-<li>JavaScript 引擎的原生对象添加属性和方法，可以使用declare global {}语法。</li>
-<li>第一行的空导出语句export {}，作用是强制编译器将这个脚本当作模块处理。这是因为declare global必须用在模块里面。</li>
-<li>declare global 只能扩充现有对象的类型描述，不能增加新的顶层类型</li>
-</ul>
-<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{};</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> global </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">interface</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">String</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    toSmallString</span><span style="color: #89DDFF">():</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #FFCB6B">String</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">prototype</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">toSmallString</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">():</span><span style="color: #FFCB6B">string</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">=&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #89DDFF">  </span><span style="color: #676E95; font-style: italic">// 具体实现</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #F07178"> </span><span style="color: #89DDFF">&#39;&#39;</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">};</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{};</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> global </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #C792EA">interface</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Window</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    myAppConfig</span><span style="color: #89DDFF">:</span><span style="color: #FFCB6B">object</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> config </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> window</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">myAppConfig</span><span style="color: #89DDFF">;</span></span></code></pre>
-</div><h2 id="declare-enum" tabindex="-1">declare enum <a class="header-anchor" href="#declare-enum" aria-label="Permalink to &quot;declare enum&quot;">&ZeroWidthSpace;</a></h2>
-<div class="language-Typescript"><button title="Copy Code" class="copy"></button><span class="lang">Typescript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">enum</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">E1</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  A</span><span style="color: #89DDFF">,</span></span>
-<span class="line"><span style="color: #A6ACCD">  B</span><span style="color: #89DDFF">,</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">enum</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">E2</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  A </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #89DDFF">,</span></span>
-<span class="line"><span style="color: #A6ACCD">  B </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">1</span><span style="color: #89DDFF">,</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">enum</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">E3</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  A</span><span style="color: #89DDFF">,</span></span>
-<span class="line"><span style="color: #A6ACCD">  B</span><span style="color: #89DDFF">,</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">enum</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">E4</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  A </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">0</span><span style="color: #89DDFF">,</span></span>
-<span class="line"><span style="color: #A6ACCD">  B </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #F78C6C">1</span><span style="color: #89DDFF">,</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
-</div><h2 id="declare-module-用于类型声明文件" tabindex="-1">declare module 用于类型声明文件 <a class="header-anchor" href="#declare-module-用于类型声明文件" aria-label="Permalink to &quot;declare module 用于类型声明文件&quot;">&ZeroWidthSpace;</a></h2>
-<ul>
-<li>可以为每个模块脚本，定义一个.d.ts文件，把该脚本用到的类型定义都放在这个文件里面</li>
-<li>但更方便的做法是为整个项目，定义一个大的.d.ts文件，在这个文件里面使用declare module定义每个模块脚本的类型。</li>
-</ul>
-<div class="language-TypeScript"><button title="Copy Code" class="copy"></button><span class="lang">TypeScript</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #676E95; font-style: italic">// node.d.ts</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">module</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">url</span><span style="color: #89DDFF">&quot;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #F07178"> </span><span style="color: #C792EA">interface</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Url</span><span style="color: #F07178"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">    protocol</span><span style="color: #89DDFF">?:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">    hostname</span><span style="color: #89DDFF">?:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">    pathname</span><span style="color: #89DDFF">?:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #F07178"> </span><span style="color: #C792EA">function</span><span style="color: #F07178"> </span><span style="color: #82AAFF">parse</span><span style="color: #89DDFF">(</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #A6ACCD; font-style: italic">urlStr</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">,</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #A6ACCD; font-style: italic">parseQueryString</span><span style="color: #89DDFF">?,</span></span>
-<span class="line"><span style="color: #F07178">    </span><span style="color: #A6ACCD; font-style: italic">slashesDenoteHost</span><span style="color: #89DDFF">?</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF">):</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">Url</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #C792EA">declare</span><span style="color: #A6ACCD"> </span><span style="color: #C792EA">module</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">path</span><span style="color: #89DDFF">&quot;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #F07178"> </span><span style="color: #C792EA">function</span><span style="color: #F07178"> </span><span style="color: #82AAFF">normalize</span><span style="color: #89DDFF">(</span><span style="color: #A6ACCD; font-style: italic">p</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">):</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #F07178"> </span><span style="color: #C792EA">function</span><span style="color: #F07178"> </span><span style="color: #82AAFF">join</span><span style="color: #89DDFF">(...</span><span style="color: #A6ACCD; font-style: italic">paths</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">any</span><span style="color: #F07178">[]</span><span style="color: #89DDFF">):</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #F07178">  </span><span style="color: #89DDFF; font-style: italic">export</span><span style="color: #F07178"> </span><span style="color: #C792EA">var</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">sep</span><span style="color: #89DDFF">:</span><span style="color: #F07178"> </span><span style="color: #FFCB6B">string</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF">}</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color: #676E95; font-style: italic">// my.ts</span></span>
-<span class="line"><span style="color: #676E95; font-style: italic">/// </span><span style="color: #89DDFF; font-style: italic">&lt;</span><span style="color: #F07178; font-style: italic">reference</span><span style="color: #89DDFF; font-style: italic"> </span><span style="color: #C792EA; font-style: italic">path</span><span style="color: #89DDFF; font-style: italic">=</span><span style="color: #89DDFF; font-style: italic">&quot;</span><span style="color: #C3E88D; font-style: italic">node.d.ts</span><span style="color: #89DDFF; font-style: italic">&quot;</span><span style="color: #89DDFF; font-style: italic"> /&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #89DDFF; font-style: italic">import</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">Url</span><span style="color: #89DDFF">,</span><span style="color: #F07178"> </span><span style="color: #A6ACCD">parse</span><span style="color: #F07178"> </span><span style="color: #89DDFF">}</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF; font-style: italic">from</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">url</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #89DDFF; font-style: italic">import</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">*</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF; font-style: italic">as</span><span style="color: #A6ACCD"> path </span><span style="color: #89DDFF; font-style: italic">from</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">path</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #676E95; font-style: italic">// 使用导入的模块</span></span>
-<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> myUrl</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #FFCB6B">Url</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> </span><span style="color: #82AAFF">parse</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">https://example.com/path</span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">🚀 ~ myUrl:</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> myUrl)</span></span>
-<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> normalizedPath </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> path</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">normalize</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">/a/b/c/</span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">🚀 ~ normalizedPath:</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> normalizedPath)</span></span>
-<span class="line"><span style="color: #C792EA">const</span><span style="color: #A6ACCD"> joinedPath </span><span style="color: #89DDFF">=</span><span style="color: #A6ACCD"> path</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">join</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">dir1</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">dir2</span><span style="color: #89DDFF">&#39;</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&#39;</span><span style="color: #C3E88D">file.txt</span><span style="color: #89DDFF">&#39;</span><span style="color: #A6ACCD">)</span><span style="color: #89DDFF">;</span></span>
-<span class="line"><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #A6ACCD">(</span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">🚀 ~ joinedPath:</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">,</span><span style="color: #A6ACCD"> joinedPath)</span></span>
-<span class="line"><span style="color: #A6ACCD">console</span><span style="color: #89DDFF">.</span><span style="color: #82AAFF">log</span><span style="color: #A6ACCD">(path</span><span style="color: #89DDFF">.</span><span style="color: #A6ACCD">sep)</span><span style="color: #89DDFF">;</span><span style="color: #A6ACCD">  </span><span style="color: #676E95; font-style: italic">// 输出系统的路径分隔符，如在Unix系统上输出&#39;/&#39;</span></span></code></pre>
 </div>]]></content:encoded>
         </item>
     </channel>
