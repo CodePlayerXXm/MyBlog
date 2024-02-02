@@ -2,7 +2,7 @@
 title: TypeScript 类型工具
 group: TypeScript
 layout: doc
-date: 2024-01-18T06:56:00.460Z
+date: 2024-02-02T09:02:16.842Z
 tags: [TypeScript]
 sidebar: true
 summary: TypeScript 类型工具
@@ -98,7 +98,7 @@ extends 传入联合类型会展开，在T1相当于 'a' ,'b', 'c'都会走一�
 
 ## Extract&lt;UnionType, ExtractedMembers&gt;
 
-Extract<UnionType, Union>用来从联合类型UnionType之中，提取指定类型Union，组成一个新类型返回。它与Exclude<T, U>正好相反。
+Extract&lt;UnionType, Union&gt;用来从联合类型UnionType之中，提取指定类型Union，组成一个新类型返回。它与Exclude&lt;T, U&gt;正好相反。
 
 ```TypeScript
 
@@ -150,11 +150,10 @@ type T2 = InstanceType<never>; // never
 
 
 // 实现
-type InstanceType<
-  T extends abstract new (...args:any) => any
-> = T extends abstract new (...args: any) => infer R ? R :
-  any;
+type InstanceType<T extends abstract new (...args:any) => any> = T extends abstract new (...args: any) => infer R ? R : any;
 ```
+
+
 
 ## NonNullable&lt;Type&gt;
 
@@ -214,7 +213,7 @@ type Omit<T, K extends keyof any>
 
 ## OmitThisParameter&lt;Type&gt;
 
-OmitThisParameter<Type>从函数类型中移除 this 参数。
+OmitThisParameter&lt;Type&gt;从函数类型中移除 this 参数。
 
 ```TypeScript
 
@@ -238,7 +237,7 @@ type OmitThisParameter<T> =
 ```
 ## Parameters&lt;Type&gt;
 
-Parameters<Type>从函数类型Type里面提取参数类型，组成一个元组返回。
+Parameters&lt;Type&gt;从函数类型Type里面提取参数类型，组成一个元组返回。
 
 ```TypeScript
 
@@ -268,7 +267,7 @@ type T2 = Parameters<never>; // never
 
 ```
 
-Parameters<Type>主要用于从外部模块提供的函数类型中，获取参数类型。
+Parameters&lt;Type&gt;主要用于从外部模块提供的函数类型中，获取参数类型。
 
 
 ```TypeScript
@@ -303,7 +302,7 @@ type Parameters<T extends (...args: any) => any> =
 
 ## Partial&lt;Type&gt;
 
-Partial<Type>返回一个新类型，将参数类型Type的所有属性变为可选属性。
+Partial&lt;Type&gt;返回一个新类型，将参数类型Type的所有属性变为可选属性。
 
 
 ```TypeScript
@@ -397,7 +396,7 @@ type Record<K extends string|number|symbol, T>
 
 ## Required&lt;Type&gt;
 
-Required<Type>返回一个新类型，将参数类型Type的所有属性变为必选属性。它与Partial<Type>的作用正好相反。
+Required&lt;Type&gt;返回一个新类型，将参数类型Type的所有属性变为必选属性。它与Partial&lt;Type&gt;的作用正好相反。
 
 ```TypeScript
 
@@ -417,7 +416,7 @@ type Required<T> = {
 
 ## ReadonlyArray&lt;Type&gt;
 
-ReadonlyArray<Type>用来生成一个只读数组类型，类型参数Type表示数组成员的类型。
+ReadonlyArray&lt;Type&gt;用来生成一个只读数组类型，类型参数Type表示数组成员的类型。
 
 ```TypeScript
 
@@ -442,7 +441,7 @@ interface ReadonlyArray<T> {
 
 ## ReturnType&lt;Type&gt;
 
-ReturnType<Type>提取函数类型Type的返回值类型，作为一个新类型返回。
+ReturnType&lt;Type&gt;提取函数类型Type的返回值类型，作为一个新类型返回。
 
 ```TypeScript
 
@@ -485,7 +484,7 @@ type ReturnType<
 
 ## ThisParameterType&lt;Type&gt;
 
-ThisParameterType<Type>提取函数类型中this参数的类型。
+ThisParameterType&lt;Type&gt;提取函数类型中this参数的类型。
 
 ```TypeScript
 
