@@ -2,7 +2,7 @@
 title: RAG Embeddings
 group: AI
 layout: doc
-date: 2024-03-01T03:48:59.309Z
+date: 2024-03-13T09:31:39.314Z
 tags: [AI]
 summary: 给大模型提供知识库（文本向量数据库）
 sidebar: true
