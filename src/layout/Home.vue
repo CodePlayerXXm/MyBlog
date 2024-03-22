@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
 import { getPages } from "../utils";
-import banner from '../assets/images/banner.jpg'
 import PageList from "./../components/PageList.vue";
 
 const { theme } = useData();
@@ -30,7 +29,7 @@ const posts = computed(() => getPages("doc", theme.value));
   box-sizing: border-box;
   width: 100vw;
   height: 33vh;
-  background: url('../assets/images/banner.jpg') no-repeat center;
+  background: url('../assets/images/banner.png') no-repeat center;
   background-size: cover;
   position: relative;
 }
