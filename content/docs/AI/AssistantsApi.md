@@ -2,7 +2,7 @@
 title: Assistants API
 group: AI
 layout: doc
-date: 2024-03-01T03:48:59.309Z
+date: 2024-03-22T01:19:04.820Z
 tags: [AI]
 summary: OpenAI 官方提供的一些api可以实现function call，RAG等功能.
 sidebar: true
