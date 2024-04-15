@@ -5,7 +5,7 @@ layout: doc
 date: 2024-04-14T15:04:31.795Z
 tags: [数学, 3D数学]
 sidebar: true
-summary: 笛卡尔坐标系
+summary: 一些三维笛卡尔坐标系相关的知识
 ---
 
 ## 二维坐标系
