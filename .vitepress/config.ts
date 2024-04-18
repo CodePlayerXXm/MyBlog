@@ -42,26 +42,14 @@ export default defineConfigWithTheme<ThemeConfig>({
       },
       { text: "Tags", link: "/tags?layout=post", activeMatch: "" },
     ],
-
+    outline: {
+      level: "deep",
+      label: "文章大纲",
+    },
     socialLinks: [
       { icon: "github", link: "https://github.com/fzdwx/vitepress-blog-theme" },
     ],
   },
-  // head: [
-  //   [
-  //     "script",
-  //     { src: "https://www.googletagmanager.com/gtag/js?id=your google" },
-  //   ],
-  //   [
-  //     "script",
-  //     {},
-  //     `window.dataLayer = window.dataLayer || [];
-  //     function gtag(){dataLayer.push(arguments);}
-  //     gtag('js', new Date());
-
-  //     gtag('config', 'your google');`,
-  //   ],
-  // ],
   transformHtml: (_, id, { pageData }) => {
     if (!/[\\/]404\.html$/.test(id))
       links.push({
