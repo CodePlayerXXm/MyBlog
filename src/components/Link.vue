@@ -3,7 +3,6 @@ import { computed } from "vue";
 //@ts-ignore
 import { normalizeLink } from "vitepress/dist/client/theme-default/support/utils";
 import { EXTERNAL_URL_RE } from "../utils";
-import VPIconExternalLink from "vitepress/dist/client/theme-default/components/icons/VPIconExternalLink.vue";
 
 const props = defineProps<{
   tag?: string;
@@ -29,7 +28,6 @@ const isExternal = computed(
     :rel="rel || (isExternal ? 'noreferrer' : undefined)"
   >
     <slot />
-    <VPIconExternalLink v-if="isExternal && !noIcon" class="icon" />
   </component>
 </template>
 

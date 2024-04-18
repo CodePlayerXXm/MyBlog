@@ -1,6 +1,8 @@
 import { getRssFeed } from "./theme/rss";
 import { defineConfigWithTheme, PageData } from "vitepress";
 import { ThemeConfig } from "../src/types";
+import customElements from './mathjax.config'
+import mathjax3 from 'markdown-it-mathjax3';
 
 const links: { url: string; lastmod: PageData["lastUpdated"] }[] = [];
 
@@ -12,7 +14,6 @@ export default defineConfigWithTheme<ThemeConfig>({
   lang: "zh-CN",
   themeConfig: {
     sortBy: "date",
-    icon: "https://raw.githubusercontent.com/fzdwx/blog-history/main/static/images/party_parrot.gif",
     dateFormat: "YYYY-MM-DD HH:mm:ss",
     editLink: {
       text: "✍",
@@ -31,10 +32,6 @@ export default defineConfigWithTheme<ThemeConfig>({
       {
         text: "Home",
         link: "/",
-      },
-      {
-        text: "Notes",
-        link: "/tags?layout=issue",
       },
       {
         text: "Docs",
@@ -67,4 +64,17 @@ export default defineConfigWithTheme<ThemeConfig>({
     copyright:
       "Copyright (c) 2023-present, fzdwx<likelovec@gmail.com> and blog contributors",
   }),
+  markdown: {
+    config: (md) => {
+      // 使用更多的 Markdown-it 插件！
+      md.use(mathjax3)
+    }
+  },
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => customElements.includes(tag),
+      },
+    },
+  },
 });

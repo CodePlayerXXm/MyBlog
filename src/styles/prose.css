@@ -16,9 +16,7 @@ header > h1 {
 }
 
 .prose .header-anchor {
-  float: left;
-  margin-left: -0.87em;
-  padding-right: 0.23em;
+
   font-weight: 500;
   user-select: none;
   opacity: 0;
@@ -34,7 +32,6 @@ header > h1 {
 .prose h6 {
   font-weight: bolder;
   margin: 0;
-  @apply pb-2 pt-10;
 }
 
 .prose p{
