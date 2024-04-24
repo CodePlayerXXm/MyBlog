@@ -9,7 +9,6 @@
   "version": "0.2.3",
   "description": "A blog theme for vitepress",
   "module": "./src/index.ts",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/fzdwx/vitepress-blog-theme"
