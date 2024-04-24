@@ -2,7 +2,7 @@
 title: LangChain
 group: AI
 layout: doc
-date: 2024-03-22T01:19:04.820Z
+date: 2024-04-24T02:49:43.293Z
 tags: [AI]
 summary: 现在最流行的搞大语言模型开发的框架
 sidebar: true
