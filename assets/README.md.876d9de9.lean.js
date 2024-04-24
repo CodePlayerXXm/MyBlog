@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as s,V as t}from"./chunks/framework.7cada2c9.js";const v=JSON.parse('{"title":"vitepress blog theme","description":"","frontmatter":{},"headers":[],"relativePath":"README.md"}'),l={name:"README.md"},o=t("",8),n=[o];function p(r,c,i,h,d,m){return s(),a("div",null,n)}const b=e(l,[["render",p]]);export{v as __pageData,b as default};

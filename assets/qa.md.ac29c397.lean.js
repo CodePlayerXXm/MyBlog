@@ -1,1 +1,0 @@
-import{_ as t,c as e,o as a}from"./chunks/framework.7cada2c9.js";const m=JSON.parse('{"title":"Q&A","description":"","frontmatter":{"title":"Q&A","layout":"qamain"},"headers":[],"relativePath":"qa.md"}'),o={name:"qa.md"};function r(n,s,c,i,p,_){return a(),e("div")}const l=t(o,[["render",r]]);export{m as __pageData,l as default};
