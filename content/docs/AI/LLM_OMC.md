@@ -2,7 +2,7 @@
 title: LLM 应用维护平台
 group: AI
 layout: doc
-date: 2024-04-24T02:49:43.293Z
+date: 2024-05-09T05:58:27.498Z
 tags: [AI]
 summary: LLM维护平台开源，闭源相关技术方案
 sidebar: true
@@ -655,7 +655,7 @@ run_evaluation(chain_v1, "my-dataset", "v1-"+str(uuid.uuid4())[:8])
 ### 1.4.5、Prompt 调优与回归测试
 
 
-优化 Prompt：试试思维链（回忆[第二课](../02-prompt/index.ipynb)）
+优化 Prompt：试试思维链（回忆[第二课](/content/docs/AI/PromptEngineering.html)）
 
 
 
