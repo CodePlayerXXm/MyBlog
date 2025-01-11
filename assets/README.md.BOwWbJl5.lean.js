@@ -1,1 +1,0 @@
-import{_ as e,c as s,o as a,a8 as t}from"./chunks/framework.DuxrSgz9.js";const g=JSON.parse('{"title":"vitepress blog theme","description":"","frontmatter":{},"headers":[],"relativePath":"README.md","filePath":"README.md"}'),i={name:"README.md"},l=t("",8),p=[l];function n(o,r,h,c,d,m){return a(),s("div",null,p)}const v=e(i,[["render",n]]);export{g as __pageData,v as default};
