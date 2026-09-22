@@ -4,11 +4,13 @@
   // GitHub Actions 里由 .github/workflows/deploy.yml 执行。
   "name": "myblog",
   "compatibility_date": "2026-09-01",
-  // 部署到 myblog.xiaoxiao643336.workers.dev
-  // 等 643336.xyz 的 zone 变成 Active 之后，改成下面这样把自定义域名绑上：
-  //   "workers_dev": false,
-  //   "routes": [{ "pattern": "643336.xyz", "custom_domain": true }]
+  // 自定义域名：部署时 Cloudflare 会自动建好 DNS 记录并签发证书。
+  // 暂时保留 workers_dev: true，等自定义域名验证通过后再关掉它。
   "workers_dev": true,
+  "routes": [
+    { "pattern": "643336.xyz", "custom_domain": true },
+    { "pattern": "www.643336.xyz", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./.vitepress/dist",
     // VitePress 开了 cleanUrls：URL 是 /TypeScript/Generic，而产物文件是
