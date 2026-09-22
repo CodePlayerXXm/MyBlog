@@ -687,7 +687,9 @@ body {
 .post-entry {
   border-radius: 0;
   clip-path: var(--chamfer);
-  padding-left: 4px;
+  /* cover.css 里卡片本来是 padding: var(--gap)（20px），这里左侧再宽一点，
+     给 hover 时出现的霓虹竖条留出空间 */
+  padding-left: calc(var(--gap) + 8px);
 }
 
 .post-entry::before {
