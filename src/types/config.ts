@@ -19,8 +19,4 @@ export interface ThemeConfig extends DefaultTheme.Config {
    * default is 'date'
    */
   sortBy?: "date" | "update";
-
-  issues?: {
-    showComment?: boolean; // default false
-  };
 }

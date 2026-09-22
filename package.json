@@ -1,52 +1,44 @@
 {
-  "author": {
-    "name": "fzdwx",
-    "email": "likelovec@gmail.com",
-    "url": "https://github.com/fzdwx"
-  },
-  "name": "vitepress-blog-theme",
+  "name": "myblog",
+  "private": true,
   "type": "module",
-  "version": "0.2.3",
-  "description": "A blog theme for vitepress",
-  "module": "./src/index.ts",
+  "version": "1.0.0",
+  "description": "Ethan 的个人技术笔记",
+  "license": "MIT",
+  "packageManager": "pnpm@11.7.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fzdwx/vitepress-blog-theme"
+    "url": "https://github.com/CodePlayerXXm/MyBlog"
   },
-  "license": "MIT",
   "devDependencies": {
-    "@iconify/json": "^2.2.201",
     "@tailwindcss/typography": "^0.5.12",
     "@types/body-scroll-lock": "^3.1.2",
-    "@types/node": "^18.19.31",
-    "@vue-macros/volar": "^0.9.8",
+    "@types/node": "^22.10.2",
     "autoprefixer": "^10.4.19",
     "feed": "^4.2.2",
     "postcss": "^8.4.38",
     "sitemap": "^7.1.1",
     "tailwindcss": "^3.4.3",
     "unplugin-auto-import": "^0.15.3",
-    "unplugin-icons": "^0.15.3",
     "unplugin-vue-components": "^0.24.1",
-    "vitepress": "1.1.0",
-    "vue": "^3.4.21"
+    "vitepress": "1.6.4",
+    "vue": "^3.5.13"
   },
   "scripts": {
     "dev": "vitepress dev --host",
-    "build": "vitepress build",
+    "build": "node scripts/check.mjs && vitepress build",
     "preview": "vitepress preview",
-    "sync": "go run . sync"
+    "new": "node scripts/new.mjs",
+    "check": "node scripts/check.mjs"
   },
   "dependencies": {
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "@vueuse/core": "^9.13.0",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
+    "@vueuse/core": "^12.4.0",
     "body-scroll-lock": "4.0.0-beta.0",
     "dayjs": "^1.11.10",
-    "gray-matter": "^4.0.3",
     "lxgw-wenkai-screen-webfont": "^1.7.0",
-    "markdown-it-mathjax": "^2.0.0",
     "markdown-it-mathjax3": "^4.3.2",
-    "vite": "^4.5.3"
+    "vite": "^5.4.14"
   },
   "postcss": {
     "plugins": {

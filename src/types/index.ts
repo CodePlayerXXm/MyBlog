@@ -1,39 +1,18 @@
-import {
-  ThemeConfig
-}
-from "./config";
+import { ThemeConfig } from "./config";
 
 interface Page {
   title: string;
   url: string;
-  date: string | number;
-  update: string | number; // default is update
+  /** 分组显示名（如 数学 / JavaScript），由目录名推导 */
+  group: string;
+  /** 分组原始目录名（如 Math / Javascript） */
+  groupKey: string;
+  /** 毫秒时间戳 */
+  date: number;
+  /** 毫秒时间戳，缺省等于 date */
+  update: number;
   frontmatter: Record<string, any>;
-  src: string; // markdown content
-  desc: string; // description
-  html?: string
+  desc: string;
 }
 
-interface Links {
-  name?: string;
-  url: string;
-  icon?: string;
-  desc?: string;
-}
-
-interface FeedItem {
-  name: string;
-  avatar: string;
-  info: FeedItemInfo[];
-}
-
-interface FeedItemInfo {
-  name: string;
-  title: string;
-  url: string;
-  time: string;
-}
-
-export type {
-  Page, ThemeConfig, Links, FeedItem, FeedItemInfo
-};
+export type { Page, ThemeConfig };

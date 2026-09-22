@@ -7,20 +7,18 @@ import { getPages, tagsUrl } from "../utils";
 
 import PageList from "./../components/PageList.vue";
 
-const { layout, tag } = useUrlSearchParams<Record<string, string>>();
+const { tag } = useUrlSearchParams<Record<string, string>>();
 
-const { theme } = useData();
+const { theme, frontmatter } = useData();
 
 const state = ref<{
-  layout: string;
   tag: string;
   allPages: Page[];
   currentPages: Page[];
   tags: Set<string>;
 }>({
-  layout: layout,
   tag: tag,
-  allPages: getPages(layout, theme.value),
+  allPages: getPages(theme.value),
   currentPages: [],
   tags: new Set<string>(),
 });
@@ -53,18 +51,9 @@ const resetTag = (tag: string) => {
 
 const route = useRouter();
 route.onAfterRouteChanged = (to: string) => {
-  const { layout, tag } = useUrlSearchParams<Record<string, string>>();
-  state.value.tag = tag;
-  if (layout !== state.value.layout) {
-    state.value.layout = layout;
-    state.value.allPages = getPages(layout, theme.value);
-    refresh(tag);
-  } else {
-    resetTag(tag);
-  }
+  const { tag } = useUrlSearchParams<Record<string, string>>();
+  resetTag(tag);
 };
-
-const { frontmatter } = useData();
 
 refresh(state.value.tag);
 </script>
@@ -74,7 +63,7 @@ refresh(state.value.tag);
     <main>
       <header class="ml-10 md:ml-8 mb-8">
         <h1>
-          {{ frontmatter.layoutTitleMap[state.layout] }}
+          {{ frontmatter.title }}
           <span v-if="state.tag">:</span>
           <span class="pl-3 text-2xl">{{ state.tag }}</span>
         </h1>
@@ -82,9 +71,9 @@ refresh(state.value.tag);
       <nav class="tag-list ml-10 md:ml-8 main-content">
         <a
           v-for="tag in state.tags"
-          :href="tagsUrl(state.layout, tag)"
+          :href="tagsUrl(tag)"
           @click="resetTag(tag)"
-          :class="{ 'text-cyna-3': tag === state.tag }"
+          :class="{ 'is-active': tag === state.tag }"
           class="tag"
           >{{ tag }}</a
         >
@@ -107,9 +96,11 @@ refresh(state.value.tag);
 }
 
 .tag {
-  @apply px-4 py-2 mx-4 my-1;
-  @apply bg-slate-300/30 dark:bg-slate-700/70 rounded-lg text-sm;
-  @apply hover:text-cyna-3;
+  /* 外观（描边、霓虹色、hover 发光）统一在 src/styles/theme.css 里定义 */
+  margin: 0.25rem 0.5rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.8125rem;
   display: inline-block;
 }
 

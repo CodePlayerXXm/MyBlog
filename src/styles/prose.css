@@ -2,7 +2,7 @@
   font-weight: normal;
   font-style: normal;
   color: inherit;
-  border-left-color: var(--cyna-2) !important;
+  border-left-color: var(--accent-yellow) !important;
   border-left: 2px solid;
   quotes: "\201C""\201D""\2018""\2019";
 }

@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { withBase } from 'vitepress'
+import { withBase } from "vitepress";
 import { ThemeConfig } from "../types";
 //@ts-ignore
 import { data as contents, Page } from "./content.data";
@@ -10,55 +10,34 @@ export const EXTERNAL_URL_RE = /^[a-z]+:/i;
 
 const init = () => {
   const pageMap = new Map<string, Page>();
-  const pageGroupByLayout = new Map<string, Page[]>();
   contents.forEach((content: Page) => {
-    pageMap.set(content.url, content);
-    const layout = content.frontmatter.layout;
-    if (!layout) {
-      return;
-    }
-
-    pageGroupByLayout.get(layout)?.push(content) ||
-      pageGroupByLayout.set(layout, [content]);
+    // key 统一归一化（去掉 .html / index / hash），这样 cleanUrls 开关都能匹配
+    pageMap.set(normalize(content.url), content);
   });
 
-  return {
-    pageMap,
-    pageGroupByLayout,
-  };
+  return { pageMap };
 };
 
-const { pageMap, pageGroupByLayout } = init();
+const { pageMap } = init();
 
 /**
- * get path by route path
- * @param path route path
- * @returns Page
+ * get page by route path
+ *
+ * pageMap 的 key 是站点相对路径（不含 base），所以这里要求 base 为 "/"。
  */
 const getPage = (path: string) => {
-  return pageMap.get(path.substring(7));
+  return pageMap.get(normalize(path));
 };
 
 const sort = (pages: Page[], theme: ThemeConfig) => {
-  let sort = "date";
-  if (theme.sortBy) {
-    sort = theme.sortBy;
-  }
+  const key = theme.sortBy ?? "date";
 
-  return pages.sort((a, b) => {
-    // @ts-ignore
-    const val = b[sort] - a[sort];
-    // const val = a[sort] - b[sort];
-    return val;
-  });
+  return pages.sort((a, b) => b[key] - a[key]);
 };
 
-const getPages = (layout: string, theme: ThemeConfig) => {
-  const allPages = []
-  for (const [_, value] of pageMap) {
-    allPages.push(value)
-  }
-  return sort(allPages ?? [], theme);
+/** 全部文章，按 themeConfig.sortBy 排序 */
+const getPages = (theme: ThemeConfig) => {
+  return sort([...pageMap.values()], theme);
 };
 
 const defaultDataFormat = "YYYY-MM-DD HH:mm:ss";
@@ -71,11 +50,8 @@ const formatDate = (time: string | number, pattern?: string) => {
   return dayjs(time).format(pattern);
 };
 
-const tagsUrl = (layout: string, tag: string) => {
-  if (layout === "qamain") {
-    return withBase(`/qa.html?tag=${tag}`)
-  }
-  return withBase(`/tags?layout=${layout}&tag=${tag}`);
+const tagsUrl = (tag: string) => {
+  return withBase(`/tags?tag=${encodeURIComponent(tag)}`);
 };
 
 export function isActive(
@@ -106,17 +82,18 @@ export function normalize(path: string) {
 export function isExternal(path: string) {
   return EXTERNAL_URL_RE.test(path);
 }
+
+const MAX_DESC_LENGTH = 150;
+
 const formatDesc = (desc: string) => {
-  var res = stripHtmlTags(desc);
-  if (res.length > 100) {
-    res = res.slice(0, 250) + "...";
-  }
-  return res;
+  const text = stripHtmlTags(desc).trim();
+  return text.length > MAX_DESC_LENGTH
+    ? `${text.slice(0, MAX_DESC_LENGTH)}…`
+    : text;
 };
 
 const stripHtmlTags = (html: string) => {
-  html = html.replace(/<\/?[^>]*>/g, ""); //去除HTML tag
-  return html;
+  return html.replace(/<\/?[^>]*>/g, ""); //去除HTML tag
 };
 
 function r(
@@ -142,7 +119,6 @@ export {
   r,
   rs,
   pageMap,
-  pageGroupByLayout,
   formatDate,
   getPage,
   getPages,

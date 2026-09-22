@@ -4,16 +4,6 @@ import VPDoc from "vitepress/dist/client/theme-default/components/VPDoc.vue";
 import PageMeta from "../components/PageMeta.vue";
 import SidebarVue from "./Sidebar.vue";
 
-const title = (page: Page | undefined) => {
-  if (!page) return <div></div>;
-
-  return (
-    <header class="post-title center">
-      <h1>{page.title}</h1>
-    </header>
-  );
-};
-
 const meta = (page: Page | undefined) => {
   if (!page) return <div></div>;
   return (
@@ -29,10 +19,10 @@ export default () => {
   const { theme } = useData();
 
   const docGroups = computed<Map<string, Page[]>>(() => {
-    const pages = getPages("doc", theme.value);
+    const pages = getPages(theme.value);
     const groups: Map<string, Page[]> = new Map();
     pages.map((page) => {
-      const group = page.frontmatter.group ? page.frontmatter.group : "Others";
+      const group = page.group || "Others";
       if (groups.get(group) === undefined) {
         groups.set(group, [page]);
       } else {
@@ -71,12 +61,10 @@ export default () => {
       <SidebarVue sidebarGroups={sidebarGroups.value} open={false} hasSidebar />
       <VPDoc class={"  prose dark:prose-invert"}>
         {{
+          // 标题由正文第一个 H1 提供，这里只渲染日期/标签/编辑链接
           "doc-before": () => {
             return (
-              <div class={" not-prose doc-meta "}>
-                {title(page.value)}
-                {meta(page.value)}
-              </div>
+              <div class={" not-prose doc-meta "}>{meta(page.value)}</div>
             );
           },
         }}

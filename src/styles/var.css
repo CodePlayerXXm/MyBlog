@@ -34,41 +34,16 @@
   /* --vp-c-brand: #646cff;
   --vp-c-brand-light: #747bff;
   --vp-c-brand-lighter: #9499ff; */
-  --vp-c-brand-lightest: rgb(188, 192, 255);
+  --vp-c-brand-lightest: #fff37a;
   /* --vp-c-brand-dark: #535bf2; */
   /* --vp-c-brand-darker: #454ce1; */
-  --vp-c-brand-dimm: rgba(4, 120, 87, 0.08);
-  --blue-1: #a175ff;
-  --blue-2: #a394f0;
-  --cyna-1: #61ffca;
-  --cyna-2: #73bc83;
-  --cyna-3: #57bf7d;
-  --pink1: #ffe9f3;
-  --pink2: #f2ccff;
-  --pink3: #f5e1ff;
-  --pink4: #e7f5f0;
-  --pink5: #f1faf5;
+  --accent-magenta: #ff2e88; /* 链接 hover 下划线 */
+  --accent-yellow: #fce300; /* 引用块左边框 + 链接色 */
 
-  --vp-c-barnd: #10b981;
-  --vp-c-barnd-light: #34d399;
-  --vp-c-barnd-lighter: #6ee7b7;
-  --vp-c-barnd-dark: #059669;
-  --vp-c-barnd-darker: rgb(4, 120, 87);
-  --vp-c-brand-lightest: rgb(188, 192, 255);
+  --vp-c-brand-lightest: #fff37a;
   --vp-custom-block-tip-bg: #f9f9fa;
 
-  --color1: #bfbfbf;
-  --color2: #d5a6bd;
-  --color3: #a3c7e6;
-  --color4: #9fd4b9;
-  --color5: #808080;
-  --color6: #404040;
-  --color7: #f6eaa2;
-  --color8: #ff8c00;
-  --color9: #ff8ba6;
-  --color10: #d4a373;
-  --link-background-color: rgb(232, 227, 247);
-  --secondary: #605c71;
+  --secondary: #9a9aac;
 }
 
 .dark {
@@ -80,9 +55,9 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --link-hover-color: var(--cyna-3);
-  --link-color: var(--cyna-3);
-  --link-hover-underline-color: var(--blue-1);
+  --link-hover-color: var(--accent-magenta);
+  --link-color: var(--accent-yellow);
+  --link-hover-underline-color: var(--accent-magenta);
   --link-underline-shadow: 0 1px 0 var(--link-color);
   --link-hover-underline-shadow: 0 2px 0 var(--link-hover-underline-color);
   --link-transition: all 0.3s ease;

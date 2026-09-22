@@ -3,9 +3,15 @@ import { Author, Feed } from "feed";
 import path from "path";
 import { resolve } from "path";
 import { writeFileSync, createWriteStream } from "fs";
-
 import { SitemapStream } from "sitemap";
+import { deriveMeta } from "../../src/utils/meta";
 
+/**
+ * RSS 与 sitemap。
+ *
+ * 元数据推导复用 `src/utils/meta.ts`，与列表页 / 侧边栏规则一致。
+ * 这里的 glob 同样是相对 srcDir（content/）解析的 —— 只取 content/<分组>/<文章>.md。
+ */
 export const getRssFeed = ({
   baseUrl,
   links,
@@ -18,18 +24,19 @@ export const getRssFeed = ({
   author?: Author;
 }) => {
   return async (config: SiteConfig) => {
-    const posts = await createContentLoader("./content/**/*.md", {
+    const posts = await createContentLoader("./*/*.md", {
       excerpt: true,
-      render: true,
+      includeSrc: true,
     }).load();
 
-    posts.sort(
-      (a, b) =>
-        +new Date(b.frontmatter.date as string) -
-        +new Date(a.frontmatter.date as string)
-    );
+    const items = posts
+      .map((p: any) => ({
+        ...deriveMeta(p),
+        url: p.url,
+      }))
+      .sort((a, b) => b.date - a.date);
 
-    rss(config, baseUrl, copyright, posts, author);
+    rss(config, baseUrl, copyright, items, author);
 
     await sitemap(baseUrl, config, links);
   };
@@ -48,7 +55,7 @@ function rss(
   config: SiteConfig<any>,
   baseUrl: string,
   copyright: string,
-  posts: any[],
+  items: { title: string; url: string; desc: string; date: number }[],
   author?: Author
 ) {
   const feed = new Feed({
@@ -62,23 +69,15 @@ function rss(
     copyright: copyright,
     author: author,
   });
-  posts = posts.slice(0, 5);
-  for (const { url, excerpt, frontmatter, html } of posts) {
+
+  for (const { title, url, desc, date } of items) {
     feed.addItem({
-      title: frontmatter.title,
+      title,
       id: `${baseUrl}${url}`,
       link: `${baseUrl}${url}`,
-      description: excerpt,
-      content: html,
-      author: [
-        {
-          name: frontmatter.author,
-          link: frontmatter.twitter
-            ? `https://twitter.com/${frontmatter.twitter}`
-            : undefined,
-        },
-      ],
-      date: frontmatter.date ? new Date(frontmatter.date) : new Date(),
+      // 只放摘要不放全文：全文会让 feed 体积到 MB 级，对带宽不划算
+      description: desc,
+      date: new Date(date),
     });
   }
 

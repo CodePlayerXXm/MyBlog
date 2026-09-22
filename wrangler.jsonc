@@ -1,0 +1,16 @@
+{
+  // Cloudflare Workers 静态资源部署配置。
+  // 本地验证：npx wrangler deploy --dry-run   实际部署：npx wrangler deploy
+  // GitHub Actions 里由 cloudflare/wrangler-action 自动执行。
+  "name": "myblog",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./.vitepress/dist",
+    // VitePress 开了 cleanUrls：URL 是 /TypeScript/Generic，而产物文件是
+    // TypeScript/Generic.html。auto-trailing-slash（默认值）正好就是
+    // 「/foo 返回 foo.html」，同时把 /foo.html 307 跳到 /foo —— 这里显式写出来备查。
+    "html_handling": "auto-trailing-slash",
+    // VitePress 会生成 404.html，交给它处理未命中路径
+    "not_found_handling": "404-page"
+  }
+}

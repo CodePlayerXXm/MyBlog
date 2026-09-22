@@ -30,12 +30,13 @@ import NavBar from "./NavBar.vue";
 
 .header-bar {
   width: 100% !important;
-  border-top: 4px solid;
+  border-top: 2px solid transparent;
   border-image-source: linear-gradient(
-    100deg,
-    var(--blue-2),
-    var(--cyna-2) 50%,
-    #8ed6fb
+    90deg,
+    transparent,
+    #fce300 22%,
+    #ff2e88 78%,
+    transparent
   );
   border-image-slice: 1;
 }

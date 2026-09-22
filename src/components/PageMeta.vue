@@ -46,7 +46,6 @@ const show = computed(showFunc);
     />
     <PageMetaTag
       v-if="page.frontmatter.tags"
-      :layout="layout"
       :tags="page.frontmatter.tags"
       :show="show"
     />

@@ -21,7 +21,8 @@ const position = (page: Page) => {
 
 <template>
   <div class="pages main-content">
-    <div class="post-entry mr-10 ml-10" v-for="page of pages">
+    <div class="post-entry" v-for="(page, i) of pages" :key="page.url">
+      <span class="entry-index">{{ String(i + 1).padStart(2, "0") }}</span>
       <PageListItem
         :position="position(page)"
         :showCover="showCover(page)"

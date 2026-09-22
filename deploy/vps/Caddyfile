@@ -1,0 +1,33 @@
+# Caddy 站点配置。
+#
+# 这个文件是给 deploy/bootstrap-server.sh 用的模板：
+# 脚本会把 __DOMAIN__ 替换成你传入的域名，写到服务器的 /etc/caddy/Caddyfile。
+#
+# 要点：
+#   1. try_files 那一行是必须的 —— VitePress 开了 cleanUrls，产物是
+#      TypeScript/Class.html，而 URL 是 /TypeScript/Class，需要服务器做映射。
+#   2. Caddy 会自动申请并续期 Let's Encrypt 证书，不需要额外配置。
+
+__DOMAIN__ {
+	root * /var/www/blog
+	encode zstd gzip
+
+	# cleanUrls：/a/b → a/b.html；再退回目录索引
+	try_files {path}.html {path} {path}/index.html
+
+	# 带内容哈希的产物资源可以永久缓存
+	@hashed path /assets/*
+	header @hashed Cache-Control "public, max-age=31536000, immutable"
+
+	# 图片和字体文件名不带哈希，缓存一个月
+	@media path /images/* /font/*
+	header @media Cache-Control "public, max-age=2592000"
+
+	# 安全头（纯静态站，不需要放开任何东西）
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	file_server
+}
