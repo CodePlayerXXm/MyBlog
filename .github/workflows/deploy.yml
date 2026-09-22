@@ -20,7 +20,8 @@ jobs:
       - name: 安装 Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # 必须是 22+ —— package.json 钉的 pnpm 11 要求 Node >= 22.13
+          node-version: 22
 
       # 版本从 package.json 的 packageManager 字段读取，保证与本地一致
       - name: 安装 pnpm
