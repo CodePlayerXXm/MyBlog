@@ -35,10 +35,11 @@ jobs:
       - name: 构建
         run: pnpm build
 
+      # 直接用 wrangler（devDependency，版本已锁定）。
+      # 不用 cloudflare/wrangler-action：它会自己探测包管理器再去调用，多一层不确定因素，
+      # 而且失败时日志不易读。wrangler 读取下面两个环境变量。
       - name: 部署到 Cloudflare Workers
-        uses: cloudflare/wrangler-action@v4
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # 显式指定，避免 action 自动探测出错
-          packageManager: pnpm
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: pnpm exec wrangler deploy
