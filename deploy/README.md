@@ -55,16 +55,45 @@ git push          # 推到 master 即触发
 
 > 注意 `*.workers.dev` 在国内多数网络下不通，所以**必须绑自定义域名**，别拿默认域名当正式地址。
 
-### 5. 绑定自定义域名
+### 4. 注册 workers.dev 子域名（首次必须）
 
-控制台 → **Workers & Pages** → 选中 `myblog` → **Settings** → **Domains & Routes**
-→ **Add** → **Custom domain** → 填你的域名（如 `blog.example.com`）。
+Cloudflare 控制台 → **Compute → Workers & Pages** → 如果提示需要注册子域名，就填一个
+（账号级、所有 Worker 共用）。**没有它 wrangler 会直接报错**：
 
-绑定后 Cloudflare 自动签发并续期证书，不用做别的。
+```
+▲ You need to register a workers.dev subdomain before publishing to workers.dev
+✘ [ERROR] You can either deploy your worker to one or more routes ...,
+  or register a workers.dev subdomain
+```
 
-> **先清理旧 DNS 记录**：接入 Cloudflare 时它会自动导入你原有的解析记录。如果里面有指向
-> 别的服务器（旧 VPS、另一台代理机）的 A 记录，**要先在 Cloudflare 的 DNS 页面删掉**，
-> 否则会和 Worker 的解析冲突。删之前确认那条记录对应的服务已经不需要了。
+### 5. 触发部署
+
+```shell
+git push
+```
+
+### 6. 绑定自定义域名
+
+**不用点控制台**——在 `wrangler.jsonc` 里声明即可，部署时会自动建好 DNS 记录并签发证书：
+
+```jsonc
+"routes": [
+  { "pattern": "你的域名", "custom_domain": true },
+  { "pattern": "www.你的域名", "custom_domain": true }
+]
+```
+
+**前提：域名对应的 zone 必须是 Active**（即 NS 已切到 Cloudflare 并传播完成）。zone 还没
+激活时加 routes 会让 `wrangler deploy` 失败。确认方式：
+
+```shell
+nslookup -type=NS 你的域名 8.8.8.8      # 应返回 *.ns.cloudflare.com
+```
+
+验证通过后，可以把 `"workers_dev": true` 改成 `false`，关掉 workers.dev 那个副地址。
+
+> 如果 Cloudflare 自动导入的 DNS 记录里有指向别的服务器（旧 VPS、代理机）的 A 记录，
+> 绑同名自定义域名时会冲突，需要先在 **DNS** 页面删掉那条记录。
 
 ## 之后的日常部署
 
