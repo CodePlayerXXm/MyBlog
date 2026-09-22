@@ -36,7 +36,9 @@ jobs:
         run: pnpm build
 
       - name: 部署到 Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # 显式指定，避免 action 自动探测出错
+          packageManager: pnpm
